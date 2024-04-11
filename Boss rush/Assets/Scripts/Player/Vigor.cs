@@ -16,7 +16,7 @@ public class Vigor : MonoBehaviour
         vigorBar.SetMaxVigor(maxVigor);
     }
     
-    private void Update()
+    private void FixedUpdate()
         {
             if (currentVigor < maxVigor)
             {
