@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Vigor : MonoBehaviour
 {
+    [SerializeField] private VigorBar vigorBar;
     [SerializeField] private float maxVigor;
     public float currentVigor;
     public bool canMakeIt;
@@ -12,6 +13,7 @@ public class Vigor : MonoBehaviour
     private void Start()
     {
         currentVigor = maxVigor;
+        vigorBar.SetMaxVigor(maxVigor);
     }
     
     private void Update()
@@ -25,6 +27,8 @@ public class Vigor : MonoBehaviour
             {
                 currentVigor = 0;
             }
+            
+            vigorBar.SetVigor(currentVigor);
         }
     
     public void VigorController(float cost)

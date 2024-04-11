@@ -71,6 +71,8 @@
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\InputSystemHelper.cs" />
     <Compile Include="Assets\Scripts\Entities\AnimatorEventHelper.cs" />
+    <Compile Include="Assets\Scripts\UI\VigorBar.cs" />
+    <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Enemies\PeakController.cs" />
     <Compile Include="Assets\Scripts\Entities\Health.cs" />
   </ItemGroup>

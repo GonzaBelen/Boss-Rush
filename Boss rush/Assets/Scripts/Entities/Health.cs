@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] private HealthBar healthBar;
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
     public UnityEvent<GameObject> OnHitWithReference;
@@ -15,6 +16,19 @@ public class Health : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        
+        if (gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            healthBar.SetMaxHealth(maxHealth);
+        }
+    }
+    
+    private void Update()
+    {
+        if (gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            healthBar.SetHealth(currentHealth);
+        }
     }
     
     public void InitializeHealth(float healthValue)

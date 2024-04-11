@@ -384,6 +384,8 @@
 "Assets/Scripts/Player/PlayerController.cs"
 "Assets/Scripts/Player/Vigor.cs"
 "Assets/Scripts/Player/WeaponParent.cs"
+"Assets/Scripts/UI/HealthBar.cs"
+"Assets/Scripts/UI/VigorBar.cs"
 -langversion:9.0
 
 /deterministic
