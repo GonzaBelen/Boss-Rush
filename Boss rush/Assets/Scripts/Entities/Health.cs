@@ -16,19 +16,20 @@ public class Health : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        
-        if (gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            healthBar.SetMaxHealth(maxHealth);
-        }
+        healthBar.SetMaxHealth(maxHealth);        
+        // if (gameObject.layer == LayerMask.NameToLayer("Player"))
+        // {
+        //     healthBar.SetMaxHealth(maxHealth);
+        // }
     }
     
     private void Update()
     {
-        if (gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            healthBar.SetHealth(currentHealth);
-        }
+        healthBar.SetHealth(currentHealth);
+        // if (gameObject.layer == LayerMask.NameToLayer("Player"))
+        // {
+        //     healthBar.SetHealth(currentHealth);
+        // }
     }
     
     public void InitializeHealth(float healthValue)
@@ -47,15 +48,21 @@ public class Health : MonoBehaviour
 
     public void GetHit(float amount, GameObject sender)
     {
-        if (isDead)
+        if (isDead || !canHurt)
+        {
+            //Debug.Log("Aca se llama a la funcion obteniendo el script y ejecutando el danio");
             return;
+        }            
         if (sender.layer == gameObject.layer)
+        {
+            //Debug.Log("Si paso de aqui es porque detecto que se lo puede daniar");
             return;
-
+        }
         currentHealth -= amount;
 
         if (currentHealth > 0)
         {
+            //Debug.Log("Si paso aqui entonces se esta ejecutando el danio");
             OnHitWithReference?.Invoke(sender);
         }
         else
@@ -63,10 +70,24 @@ public class Health : MonoBehaviour
             OnDeathWithReference?.Invoke(sender);
             isDead = true;
             StopAllCoroutines();
-            if (gameObject.layer != LayerMask.NameToLayer("Player"))
+            if (gameObject.layer == LayerMask.NameToLayer("Player"))
             {
-                Destroy(gameObject);
-            }            
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemie"), true);
+            } 
+            // if (gameObject.layer != LayerMask.NameToLayer("Player"))
+            // {
+            //     Destroy(gameObject);
+            // }            
         }
+    }
+
+    public void Inmunity()
+    {
+        canHurt = true;
+    }
+
+    public void NotInmunity()
+    {
+        canHurt = false;
     }
 }

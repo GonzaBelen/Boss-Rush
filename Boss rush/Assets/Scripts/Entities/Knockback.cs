@@ -27,7 +27,14 @@ public class Knockback : MonoBehaviour
         playerController.knockbackCheck = true;
         OnBegin.Invoke();
         Vector2 direction = (sender.transform.position - playerTransform.position).normalized;
-        rb2D.AddForce(direction * strength, ForceMode2D.Impulse);
+        rb2D.AddForce(transform.up * strength, ForceMode2D.Impulse);
+        if (direction.x >= 0)
+        {
+            rb2D.AddForce(transform.right * -strength, ForceMode2D.Impulse);
+        } else
+        {
+            rb2D.AddForce(transform.right * strength, ForceMode2D.Impulse);
+        }
         StartCoroutine(Reset());
     }
     private IEnumerator Reset()

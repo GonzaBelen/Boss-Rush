@@ -79,8 +79,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Knockback");
             animator.SetTrigger("Damage");
-            // StartCoroutine(Knockback());
-            return;   
+            return;
         }
         
         if (isParry)
@@ -154,7 +153,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed && isGrounded)
         {
-            vigor.VigorController(15);
+            vigor.VigorController(jumpCost);
             if (vigor.canMakeIt)
             {
                 rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -171,7 +170,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed && isGrounded && canDash && !isParry)
         {
-            vigor.VigorController(20);
+            vigor.VigorController(dashCost);
             if (vigor.canMakeIt)
             {
                 StartCoroutine(Dash());
@@ -192,7 +191,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed && isGrounded && !weaponParent.attackBlocked && canMove && !isParry)
         {
-            vigor.VigorController(10);
+            vigor.VigorController(attackCost);
             if (vigor.canMakeIt)
             {
                 weaponParent.Attack();

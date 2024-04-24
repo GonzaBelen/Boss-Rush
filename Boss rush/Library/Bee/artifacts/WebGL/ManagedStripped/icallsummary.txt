@@ -452,6 +452,7 @@ UnityEngine.Physics::GetColliderByInstanceID
 UnityEngine.Physics::GetBodyByInstanceID
 UnityEngine.Physics::Internal_RaycastAll_Injected
 UnityEngine.Physics2D::get_queriesHitTriggers
+UnityEngine.Physics2D::IgnoreLayerCollision_Internal
 UnityEngine.Physics2D::OverlapCircleAll_Internal_Injected
 UnityEngine.Physics2D::GetRayIntersectionAll_Internal_Injected
 UnityEngine.PhysicsScene::Internal_RaycastTest_Injected
@@ -479,6 +480,7 @@ UnityEngine.Quaternion::AngleAxis_Injected
 UnityEngine.Quaternion::FromToRotation_Injected
 UnityEngine.Quaternion::Internal_FromEulerRad_Injected
 UnityEngine.Quaternion::Inverse_Injected
+UnityEngine.Random::Range
 UnityEngine.RectOffset::get_bottom
 UnityEngine.RectOffset::get_horizontal
 UnityEngine.RectOffset::get_left
@@ -682,6 +684,7 @@ UnityEngine.Transform::set_hasChanged
 UnityEngine.Transform::set_localPosition_Injected
 UnityEngine.Transform::set_localRotation_Injected
 UnityEngine.Transform::set_localScale_Injected
+UnityEngine.Transform::set_position_Injected
 UnityEngine.Transform::set_rotation_Injected
 UnityEngine.Transform::FindRelativeTransformWithPath
 UnityEngine.Transform::GetChild

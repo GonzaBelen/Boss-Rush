@@ -16,8 +16,7 @@ public class WeaponParent : MonoBehaviour
     public Transform circleOrigin;
     public float radius;
     public Vector2 lookDirection;
-
-    [SerializeField] private float damage = 1;
+    [SerializeField] private float damage;
 
     private void Start()
     {
