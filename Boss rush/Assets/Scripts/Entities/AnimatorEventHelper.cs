@@ -7,6 +7,7 @@ public class AnimatorEventHelper : MonoBehaviour
 {
     public UnityEvent OnAnimationEventTriggered;
     public UnityEvent OnAttackPerformed;
+    public UnityEvent OnSlimeAttackTriggered;
 
 
     public void TriggerEvent()
@@ -17,5 +18,10 @@ public class AnimatorEventHelper : MonoBehaviour
     public void TriggerAttack()
     {
         OnAttackPerformed?.Invoke();
+    }
+
+    public void SlimeTriggerAttack()
+    {
+        OnSlimeAttackTriggered?.Invoke();
     }
 }

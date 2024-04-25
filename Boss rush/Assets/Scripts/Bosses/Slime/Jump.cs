@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Jump : MonoBehaviour
 {
     private CooldownController cooldownController;
+    private SlimeController slimeController;
     private Rigidbody2D rb2D;
     private Animator animator;
     [SerializeField] private float jumpForceVertical;
@@ -16,11 +18,12 @@ public class Jump : MonoBehaviour
     [SerializeField] private Transform groundController;
     [SerializeField] private Vector3 boxDimensions;
     public bool isGrounded;
-    public bool waitToMove;
+    public UnityEvent OnEndJump;
 
     private void Start()
     {
         cooldownController = GetComponent<CooldownController>();
+        slimeController = GetComponent<SlimeController>();
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         jumpForceHorizontalNegative = jumpForceHorizontalPositive * -1;
@@ -28,10 +31,10 @@ public class Jump : MonoBehaviour
 
     private void Update()
     {
-        if (isGrounded && cooldownController.canJump)
-        {
-            JumpAction();
-        }
+        // if (isGrounded && cooldownController.canJump)
+        // {
+        //     JumpAction();
+        // }
 
         if (transform.localScale.x < 0)
         {
@@ -47,7 +50,7 @@ public class Jump : MonoBehaviour
         isGrounded = Physics2D.OverlapBox(groundController.position, boxDimensions, 0f, whatIsGround);
     }
     
-    private void JumpAction()
+    public void JumpAction()
     {
         StartCoroutine(TimeToMove());
         rb2D.AddForce(transform.up * jumpForceVertical, ForceMode2D.Impulse);
@@ -58,9 +61,11 @@ public class Jump : MonoBehaviour
 
     private IEnumerator TimeToMove()
     {
-        waitToMove = true;
+        slimeController.waitToMove = true;
         yield return new WaitForSeconds(3);
-        waitToMove = false;
+        OnEndJump?.Invoke();
+        slimeController.waitToMove = false;
+        cooldownController.stopJump = false;
     }
 
     private void OnDrawGizmos()

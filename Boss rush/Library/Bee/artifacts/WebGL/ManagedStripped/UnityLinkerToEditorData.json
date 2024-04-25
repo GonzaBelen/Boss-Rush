@@ -679,6 +679,14 @@
             "icon": null
           },
           {
+            "name": "CircleCollider2D",
+            "scenes": [
+              "Assets/Scenes/SlimeBoss.unity"
+            ],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
             "name": "Collider2D",
             "scenes": [],
             "dependencyType": 1,

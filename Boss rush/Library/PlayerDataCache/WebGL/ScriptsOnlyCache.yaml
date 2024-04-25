@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AnimatorEventHelper
+    - Attack
     - CooldownController
     - Death
     - DeathCollider
@@ -11,6 +12,7 @@ ScriptsOnlyBuild:
     - Jump
     - Knockback
     - PlayerController
+    - RangeActivation
     - SceneController
     - SlimeController
     - Vigor
@@ -68,8 +70,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -170,6 +174,24 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: SceneController
     methodName: OpenRestartScreen
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: Attack
+    methodName: TurnOffCollider
+  - assembly: Assembly-CSharp
+    fullTypeName: RangeActivation
+    methodName: TurnOnCollider
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
   - assembly: Assembly-CSharp
     fullTypeName: Health
     methodName: Inmunity
@@ -185,6 +207,9 @@ ScriptsOnlyBuild:
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.Behaviour
     methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: Attack
+    methodName: AttackActivation
   - assembly: Assembly-CSharp
     fullTypeName: SceneController
     methodName: Restart
@@ -205,6 +230,8 @@ ScriptsOnlyBuild:
     - Class: 49
       Script: {instanceID: 0}
     - Class: 50
+      Script: {instanceID: 0}
+    - Class: 58
       Script: {instanceID: 0}
     - Class: 60
       Script: {instanceID: 0}
@@ -277,11 +304,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 8538}
     - Class: 114
-      Script: {instanceID: 9100}
+      Script: {instanceID: 9098}
     - Class: 114
-      Script: {instanceID: 9338}
+      Script: {instanceID: 9336}
     - Class: 114
-      Script: {instanceID: 9658}
+      Script: {instanceID: 9656}
+    - Class: 114
+      Script: {instanceID: 27544}
+    - Class: 114
+      Script: {instanceID: 27572}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -579,7 +610,7 @@ ScriptsOnlyBuild:
     className: UnityOnDropdownValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: d460b76ca8f1d77504cce3b2ae61a10e
+      Hash: 58d2f99fe35cd88fd7a6d0e7df5d1fa0
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: AnimatorEventHelper
@@ -693,7 +724,7 @@ ScriptsOnlyBuild:
     className: UnityOnControllerColliderHitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: a21535cfa7ddb5123f113fffcbd7e429
+      Hash: 4e5cf6a71188cd8a442eda5139259f53
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SlimeController
@@ -837,7 +868,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: beb108ff48bc561f2480a13125e50cc5
+      Hash: c0568331cc6815cd00b781097f300e09
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CooldownController
@@ -1221,7 +1252,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 85e37c01a90235dc27d9bc51ea93e332
+      Hash: 07b710754599aa4538ccfcd0c37f4904
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Jump
@@ -1567,6 +1598,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 53067a8116820f69eed901219add46c5
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Attack
+  - hash:
+      serializedVersion: 2
+      Hash: 86a88ed38b0fbece387ee8fe7632f40e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: RangeActivation
   platform: 20
   scenePathNames:
   - Assets/Scenes/SlimeBoss.unity

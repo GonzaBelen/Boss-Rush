@@ -8,12 +8,14 @@ public class SlimeController : MonoBehaviour
     private Animator animator;
     private Jump jump;
     private Knockback knockback;
+    private Attack attack;
     private PolygonCollider2D polygonCollider2D;
     [SerializeField] private GameObject player;
     [SerializeField] private float movementSpeed;
     [SerializeField] public float distance;
     [SerializeField] private float collisionDamage;
     public bool canMove;
+    public bool waitToMove = false;
 
     private void Start()
     {
@@ -21,19 +23,24 @@ public class SlimeController : MonoBehaviour
         jump = GetComponent<Jump>();
         polygonCollider2D = GetComponent<PolygonCollider2D>();
         knockback = GetComponent<Knockback>();
+        attack = GetComponentInChildren<Attack>();
     }
     
     private void Update()
     {
+        if (attack.isAtacking)
+        {
+            return;
+        }
         if (canMove)
         {
             Movement();
         }
 
-        if (jump.waitToMove || !jump.isGrounded)
+        if (waitToMove || !jump.isGrounded)
         {
             canMove = false;
-        } else if (!jump.waitToMove && jump.isGrounded)
+        } else if (!waitToMove && jump.isGrounded)
         {
             canMove = true;
         }

@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\InputSystemHelper.cs" />
     <Compile Include="Assets\Scripts\Bosses\Slime\Jump.cs" />
+    <Compile Include="Assets\Scripts\Bosses\Slime\RangeActivation.cs" />
     <Compile Include="Assets\Scripts\Entities\AnimatorEventHelper.cs" />
     <Compile Include="Assets\Scripts\UI\VigorBar.cs" />
     <Compile Include="Assets\Scripts\Bosses\Slime\CooldownController.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\Scripts\UI\SceneController.cs" />
     <Compile Include="Assets\Scripts\Obstacles\PeakController.cs" />
     <Compile Include="Assets\Scripts\Entities\Health.cs" />
+    <Compile Include="Assets\Scripts\Bosses\Slime\Attack.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
