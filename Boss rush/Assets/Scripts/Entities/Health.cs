@@ -6,8 +6,9 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     [SerializeField] private HealthBar healthBar;
-    [SerializeField] private float maxHealth;
-    [SerializeField] private float currentHealth;
+    [SerializeField] public float maxHealth;
+    [SerializeField] public float currentHealth;
+    [SerializeField] public float armor;
     public UnityEvent<GameObject> OnHitWithReference;
     public UnityEvent<GameObject> OnDeathWithReference;
     [SerializeField] private bool isDead = false;
@@ -50,7 +51,9 @@ public class Health : MonoBehaviour
             //Debug.Log("Si paso de aqui es porque detecto que se lo puede daniar");
             return;
         }
+        amount *= (100 - armor) / 100;
         currentHealth -= amount;
+        Debug.Log(amount);
 
         if (currentHealth > 0)
         {

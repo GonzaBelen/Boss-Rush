@@ -9,13 +9,18 @@ public class SlimeController : MonoBehaviour
     private Jump jump;
     private Knockback knockback;
     private Attack attack;
+    private Health health;
+    private CooldownController CooldownController;
     private PolygonCollider2D polygonCollider2D;
+    private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject player;
     [SerializeField] private float movementSpeed;
     [SerializeField] public float distance;
     [SerializeField] private float collisionDamage;
+    private float halfHealth;
     public bool canMove;
     public bool waitToMove = false;
+    private bool isAlreadyInSecondFase = false;
 
     private void Start()
     {
@@ -24,6 +29,10 @@ public class SlimeController : MonoBehaviour
         polygonCollider2D = GetComponent<PolygonCollider2D>();
         knockback = GetComponent<Knockback>();
         attack = GetComponentInChildren<Attack>();
+        health = GetComponent<Health>();
+        CooldownController = GetComponent<CooldownController>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        halfHealth = health.maxHealth * 0.5f;
     }
     
     private void Update()
@@ -32,6 +41,12 @@ public class SlimeController : MonoBehaviour
         {
             return;
         }
+
+        //if (health.currentHealth < halfHealth && !isAlreadyInSecondFase)
+        //{
+        //    StartCoroutine(SecondFaseCoroutine());
+        //}
+
         if (canMove)
         {
             Movement();
@@ -90,5 +105,24 @@ public class SlimeController : MonoBehaviour
             scale.x = -7;
         }
         transform.localScale = scale;
+    }
+
+    private IEnumerator SecondFaseCoroutine()
+    {
+        isAlreadyInSecondFase = true;
+        SecondFase();
+        yield return new WaitForSeconds(0);
+    }
+
+    private void SecondFase()
+    {
+        health.armor *= 1.5f;
+        movementSpeed *= 1.5f;
+        collisionDamage *= 1.5f;
+        CooldownController.delayBetweenAttaks *= 0.5f;
+        CooldownController.attackCooldown *= 0.5f;
+        CooldownController.jumpCooldown *= 0.5f;
+        attack.damage *= 1.5f;
+        spriteRenderer.material.color = new Color(225, 138, 109,225);
     }
 }

@@ -6,7 +6,7 @@ public class Attack : MonoBehaviour
 {
     private SlimeController slimeController;
     private Knockback knockback;
-    [SerializeField] private float damage;
+    [SerializeField] public float damage;
     private PolygonCollider2D polygonCollider2D;
     public bool isAtacking = false;
 

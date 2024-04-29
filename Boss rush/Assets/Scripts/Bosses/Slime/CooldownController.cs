@@ -9,13 +9,14 @@ public class CooldownController : MonoBehaviour
     private Jump jump;
     [SerializeField] private float maxJumpCooldown;
     [SerializeField] private float minJumpCooldown;
-    private float jumpCooldown;
+    public float jumpCooldown;
     public bool canJump;
     public bool stopJump = false;
 
     [Header("Attack")]
     private Attack attack;
-    [SerializeField] private float attackCooldown;
+    [SerializeField] public float attackCooldown;
+    public float delayBetweenAttaks = 1;
     public UnityEvent OnBeginCooldownAttack;
     public UnityEvent OnDoneCooldownAttack;
     public UnityEvent OnBeginJump;
@@ -65,7 +66,7 @@ public class CooldownController : MonoBehaviour
     private IEnumerator DelayJump()
     {
         OnBeginJump?.Invoke();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(delayBetweenAttaks);
         jump.JumpAction();
     }
 }

@@ -1286,9 +1286,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxJumpCooldown: 4
   minJumpCooldown: 8
+  jumpCooldown: 0
   canJump: 0
   stopJump: 0
   attackCooldown: 4
+  delayBetweenAttaks: 1
   OnBeginCooldownAttack:
     m_PersistentCalls:
       m_Calls:
@@ -1462,6 +1464,7 @@ MonoBehaviour:
   healthBar: {fileID: 1796602372}
   maxHealth: 1000
   currentHealth: 0
+  armor: 10
   OnHitWithReference:
     m_PersistentCalls:
       m_Calls: []
@@ -1873,6 +1876,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5732279072686254916, guid: 9abdc2a24d61b6843ae41457a94d7cde, type: 3}
+      propertyPath: armor
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732279072686254916, guid: 9abdc2a24d61b6843ae41457a94d7cde, type: 3}
       propertyPath: isDead
       value: 0
       objectReference: {fileID: 0}
@@ -1880,6 +1887,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1337372475}
+    - target: {fileID: 5732279072686254916, guid: 9abdc2a24d61b6843ae41457a94d7cde, type: 3}
+      propertyPath: currentHealth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5732279072686254916, guid: 9abdc2a24d61b6843ae41457a94d7cde, type: 3}
       propertyPath: OnDeathWithReference.m_PersistentCalls.m_Calls.Array.size
       value: 6
