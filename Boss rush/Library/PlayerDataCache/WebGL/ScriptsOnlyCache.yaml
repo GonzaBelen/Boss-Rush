@@ -11,6 +11,7 @@ ScriptsOnlyBuild:
     - InputSystemHelper
     - Jump
     - Knockback
+    - ParryController
     - PlayerController
     - RangeActivation
     - SceneController
@@ -63,9 +64,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
-    - TMPro.TMP_Settings
-    - TMPro.TMP_SpriteAsset
-    - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
@@ -207,9 +205,45 @@ ScriptsOnlyBuild:
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.Behaviour
     methodName: set_enabled
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
   - assembly: Assembly-CSharp
     fullTypeName: Attack
     methodName: AttackActivation
+  - assembly: Assembly-CSharp
+    fullTypeName: Jump
+    methodName: StopJump
+  - assembly: Assembly-CSharp
+    fullTypeName: Health
+    methodName: OnWeakPoint
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: Attack
+    methodName: TurnOffCollider
+  - assembly: Assembly-CSharp
+    fullTypeName: Health
+    methodName: OnWeakPointEnd
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: SlimeController
+    methodName: CanMove
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: Jump
+    methodName: StartJump
+  - assembly: Assembly-CSharp
+    fullTypeName: ParryController
+    methodName: Parry
   - assembly: Assembly-CSharp
     fullTypeName: SceneController
     methodName: Restart
@@ -250,69 +284,71 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1634}
+      Script: {instanceID: 1544}
+    - Class: 114
+      Script: {instanceID: 1546}
     - Class: 114
       Script: {instanceID: 1638}
     - Class: 114
-      Script: {instanceID: 1872}
+      Script: {instanceID: 1642}
     - Class: 114
-      Script: {instanceID: 2422}
+      Script: {instanceID: 2424}
     - Class: 114
-      Script: {instanceID: 3028}
-    - Class: 114
-      Script: {instanceID: 3216}
+      Script: {instanceID: 3030}
     - Class: 114
       Script: {instanceID: 3302}
     - Class: 114
-      Script: {instanceID: 3602}
+      Script: {instanceID: 3682}
     - Class: 114
-      Script: {instanceID: 3684}
+      Script: {instanceID: 4022}
     - Class: 114
-      Script: {instanceID: 4074}
+      Script: {instanceID: 4530}
     - Class: 114
-      Script: {instanceID: 4248}
+      Script: {instanceID: 5040}
     - Class: 114
-      Script: {instanceID: 4382}
+      Script: {instanceID: 5094}
     - Class: 114
-      Script: {instanceID: 4536}
+      Script: {instanceID: 5440}
     - Class: 114
-      Script: {instanceID: 5018}
+      Script: {instanceID: 5846}
     - Class: 114
-      Script: {instanceID: 5048}
+      Script: {instanceID: 6334}
     - Class: 114
-      Script: {instanceID: 5102}
+      Script: {instanceID: 6438}
     - Class: 114
-      Script: {instanceID: 5448}
+      Script: {instanceID: 7194}
     - Class: 114
-      Script: {instanceID: 5642}
+      Script: {instanceID: 7428}
     - Class: 114
-      Script: {instanceID: 5858}
+      Script: {instanceID: 8158}
     - Class: 114
-      Script: {instanceID: 6346}
+      Script: {instanceID: 8378}
     - Class: 114
-      Script: {instanceID: 6450}
+      Script: {instanceID: 9082}
     - Class: 114
-      Script: {instanceID: 7206}
+      Script: {instanceID: 9320}
     - Class: 114
-      Script: {instanceID: 7440}
+      Script: {instanceID: 10584}
     - Class: 114
-      Script: {instanceID: 7948}
+      Script: {instanceID: 10588}
     - Class: 114
-      Script: {instanceID: 8172}
+      Script: {instanceID: 10596}
     - Class: 114
-      Script: {instanceID: 8392}
+      Script: {instanceID: 10600}
     - Class: 114
-      Script: {instanceID: 8538}
+      Script: {instanceID: 10604}
     - Class: 114
-      Script: {instanceID: 9098}
+      Script: {instanceID: 10608}
     - Class: 114
-      Script: {instanceID: 9336}
+      Script: {instanceID: 10612}
     - Class: 114
-      Script: {instanceID: 9656}
+      Script: {instanceID: 10616}
     - Class: 114
-      Script: {instanceID: 27544}
+      Script: {instanceID: 10620}
     - Class: 114
-      Script: {instanceID: 27572}
+      Script: {instanceID: 10624}
+    - Class: 114
+      Script: {instanceID: 32078}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -332,6 +368,18 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 86a88ed38b0fbece387ee8fe7632f40e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: RangeActivation
+  - hash:
+      serializedVersion: 2
+      Hash: 4e5cf6a71188cd8a442eda5139259f53
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SlimeController
   - hash:
       serializedVersion: 2
       Hash: 55060a7bf226ac385ce19ebd450f199f
@@ -380,12 +428,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Selectable
-  - hash:
-      serializedVersion: 2
-      Hash: 0e7b229a1fd52df2074e2b30ba0488fb
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: VigorBar
   - hash:
       serializedVersion: 2
       Hash: 157d3cf40178d244cd11ae1c9791ead7
@@ -538,12 +580,6 @@ ScriptsOnlyBuild:
     className: RuleOverrideTile
   - hash:
       serializedVersion: 2
-      Hash: 3c988a334822c7360d48c74c17b8aaee
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: PlayerController
-  - hash:
-      serializedVersion: 2
       Hash: fce9b835d1e8b08e7ecea8da19f21986
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -608,12 +644,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnDropdownValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 58d2f99fe35cd88fd7a6d0e7df5d1fa0
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: AnimatorEventHelper
   - hash:
       serializedVersion: 2
       Hash: b838cbada0b03f1cfbaebc8e124f4f39
@@ -688,6 +718,12 @@ ScriptsOnlyBuild:
     className: VariablesAsset
   - hash:
       serializedVersion: 2
+      Hash: 7171ebccc4a0825b580846912ab293b7
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Attack
+  - hash:
+      serializedVersion: 2
       Hash: 7bdff9e91edfd9600f92a185def7e34a
     assemblyName: Unity.VisualScripting.Flow
     namespaceName: Unity.VisualScripting
@@ -698,12 +734,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSelectMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: f76fdc95c79a4992af85a39bf49715c7
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Vigor
   - hash:
       serializedVersion: 2
       Hash: 5b8b7230ad968399f6726aa1269dcdcb
@@ -724,12 +754,6 @@ ScriptsOnlyBuild:
     className: UnityOnControllerColliderHitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 4e5cf6a71188cd8a442eda5139259f53
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: SlimeController
-  - hash:
-      serializedVersion: 2
       Hash: 960935b102b3064f4b924de16426e340
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -746,12 +770,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnCollisionExit2DMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: d0b408063998a934d2ebbe65250e14bc
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: HealthBar
   - hash:
       serializedVersion: 2
       Hash: 709e7a14fd69c48de1a0f460ef868042
@@ -856,19 +874,13 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 1349d11f654d50ffa2465941092b0481
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Knockback
-  - hash:
-      serializedVersion: 2
       Hash: 042785b832afb73fd0585521aa7baf43
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: c0568331cc6815cd00b781097f300e09
+      Hash: 223047b442c9e09550def64c0d04751f
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CooldownController
@@ -932,12 +944,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem
     namespaceName: UnityEngine.InputSystem.Editor
     className: InputDeviceDebuggerWindow
-  - hash:
-      serializedVersion: 2
-      Hash: a7b7a86a65c4caaf9bd930716459f32d
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Health
   - hash:
       serializedVersion: 2
       Hash: ff71db1a48de41d3a8a5ffdfae1ea607
@@ -1204,12 +1210,6 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: d35cd193db641de757d953a204cbe37e
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: InputSystemHelper
-  - hash:
-      serializedVersion: 2
       Hash: 672716ae97f6ddb615fa5ac3ec9da349
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestTools
@@ -1252,7 +1252,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 07b710754599aa4538ccfcd0c37f4904
+      Hash: e34cbfe8d8116e583a8594f8d09a6bd6
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Jump
@@ -1310,12 +1310,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
-  - hash:
-      serializedVersion: 2
-      Hash: 396ed8afa3859eff4c289b61e74143b4
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: WeaponParent
   - hash:
       serializedVersion: 2
       Hash: c4b85a67513b4f0cf7b5fb2d5ded04b0
@@ -1474,12 +1468,6 @@ ScriptsOnlyBuild:
     className: MultiplayerEventSystem
   - hash:
       serializedVersion: 2
-      Hash: f9845c8d0f1ce018c07beedb9ed35f9d
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: SceneController
-  - hash:
-      serializedVersion: 2
       Hash: 47d50f529890b9237021f88334dc1cf6
     assemblyName: Unity.2D.Animation.Runtime
     namespaceName: UnityEngine.U2D.Animation
@@ -1600,16 +1588,70 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 53067a8116820f69eed901219add46c5
+      Hash: 1349d11f654d50ffa2465941092b0481
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: Attack
+    className: Knockback
   - hash:
       serializedVersion: 2
-      Hash: 86a88ed38b0fbece387ee8fe7632f40e
+      Hash: 0e7b229a1fd52df2074e2b30ba0488fb
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: RangeActivation
+    className: VigorBar
+  - hash:
+      serializedVersion: 2
+      Hash: 396ed8afa3859eff4c289b61e74143b4
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: WeaponParent
+  - hash:
+      serializedVersion: 2
+      Hash: d35cd193db641de757d953a204cbe37e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: InputSystemHelper
+  - hash:
+      serializedVersion: 2
+      Hash: f9845c8d0f1ce018c07beedb9ed35f9d
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SceneController
+  - hash:
+      serializedVersion: 2
+      Hash: f76fdc95c79a4992af85a39bf49715c7
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Vigor
+  - hash:
+      serializedVersion: 2
+      Hash: ae19211731679c8388b353d565e20d7a
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Health
+  - hash:
+      serializedVersion: 2
+      Hash: d0b408063998a934d2ebbe65250e14bc
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: HealthBar
+  - hash:
+      serializedVersion: 2
+      Hash: 3d2238d8223c255addf0ee26ad01adc7
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: 58d2f99fe35cd88fd7a6d0e7df5d1fa0
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: AnimatorEventHelper
+  - hash:
+      serializedVersion: 2
+      Hash: 6c6ab14ee4fc492c48df4f4855b03e6e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ParryController
   platform: 20
   scenePathNames:
   - Assets/Scenes/SlimeBoss.unity

@@ -8,6 +8,8 @@ public class Jump : MonoBehaviour
 {
     private CooldownController cooldownController;
     private SlimeController slimeController;
+    private Health health;
+    private ParryController parryController;
     private Rigidbody2D rb2D;
     private Animator animator;
     [SerializeField] private float jumpForceVertical;
@@ -19,22 +21,31 @@ public class Jump : MonoBehaviour
     [SerializeField] private Vector3 boxDimensions;
     public bool isGrounded;
     public UnityEvent OnEndJump;
+    public bool stopJumping;
 
     private void Start()
     {
         cooldownController = GetComponent<CooldownController>();
         slimeController = GetComponent<SlimeController>();
+        health = GetComponent<Health>();
+        parryController = GetComponent<ParryController>();
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         jumpForceHorizontalNegative = jumpForceHorizontalPositive * -1;
+        stopJumping = false;
     }
 
     private void Update()
     {
-        // if (isGrounded && cooldownController.canJump)
-        // {
-        //     JumpAction();
-        // }
+        if (parryController.isInWeakPoint)
+        {
+            return;
+        }
+
+        if (health.isDead)
+        {
+            stopJumping = true;
+        }
 
         if (transform.localScale.x < 0)
         {
@@ -52,6 +63,10 @@ public class Jump : MonoBehaviour
     
     public void JumpAction()
     {
+        if (stopJumping || parryController.isInWeakPoint)
+        {
+            return;
+        }
         StartCoroutine(TimeToMove());
         rb2D.AddForce(transform.up * jumpForceVertical, ForceMode2D.Impulse);
         rb2D.AddForce(transform.right * jumpForceHorizontal, ForceMode2D.Impulse);
@@ -72,5 +87,15 @@ public class Jump : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(groundController.position, boxDimensions);
+    }
+
+    public void StopJump()
+    {
+        stopJumping = true;
+    }
+
+    public void StartJump()
+    {
+        stopJumping = false;
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class CooldownController : MonoBehaviour
 {
+    private ParryController parryController;
+    
     [Header("Jump")]
     private Jump jump;
     [SerializeField] private float maxJumpCooldown;
@@ -26,10 +28,16 @@ public class CooldownController : MonoBehaviour
         StartCoroutine(JumpCooldown());
         attack = GetComponentInChildren<Attack>();
         jump = GetComponent<Jump>();
+        parryController = GetComponent<ParryController>();
     }
 
     private void Update()
     {
+        if (parryController.isInWeakPoint)
+        {
+            return;
+        }
+
         if (attack.isAtacking)
         {
             StartCoroutine(AttackCooldown());

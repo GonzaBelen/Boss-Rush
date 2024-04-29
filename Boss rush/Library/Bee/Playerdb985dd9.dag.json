@@ -470,7 +470,13 @@
         462,
         463,
         464,
-        465
+        465,
+        466,
+        467,
+        468,
+        469,
+        470,
+        471
       ],
       "OverwriteOutputs": false,
       "DebugActionIndex": 0
@@ -22641,14 +22647,15 @@
       "DebugActionIndex": 442
     },
     {
-      "Annotation": "Brotli D:/Unity Proyects/WebGL Build/Build/WebGL Build.framework.js.br",
-      "DisplayName": "Brotli WebGL Build.framework.js",
-      "Action": "\"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Brotli/win_x86_64/brotli.exe\" -o \"D:/Unity Proyects/WebGL Build/Build/WebGL Build.framework.js.br\" -i \"Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js\" --comment \"UnityWeb Compressed Content (brotli)\"",
+      "Annotation": "7z Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js.unmarked",
+      "DisplayName": "7z build.framework.js",
+      "Action": "cd \"D:/Unity Proyects/Boss-Rush/Boss rush/Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Tools/7z.exe\" a -tgzip \"D:/Unity Proyects/Boss-Rush/Boss rush/Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js.unmarked\" \"build.framework.js\"",
       "Inputs": [
-        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js"
+        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Tools/7z.exe"
       ],
       "Outputs": [
-        "D:/Unity Proyects/WebGL Build/Build/WebGL Build.framework.js.br"
+        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js.unmarked"
       ],
       "ToBuildDependencies": [
         442
@@ -22659,14 +22666,52 @@
       "DebugActionIndex": 443
     },
     {
-      "Annotation": "Brotli D:/Unity Proyects/WebGL Build/Build/WebGL Build.wasm.br",
-      "DisplayName": "Brotli WebGL Build.wasm",
-      "Action": "\"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Brotli/win_x86_64/brotli.exe\" -o \"D:/Unity Proyects/WebGL Build/Build/WebGL Build.wasm.br\" -i \"Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm\" --comment \"UnityWeb Compressed Content (brotli)\"",
+      "Annotation": "WriteText Library/Bee/artifacts/csharpactions/WebGL Build.framework.js.gz_4sun.info",
+      "DisplayName": "Writing WebGL Build.framework.js.gz_4sun.info",
+      "ActionType": "WriteFile",
+      "PayloadOffset": 185600,
+      "PayloadLength": 488,
+      "PayloadDebugContentSnippet": "{\"System.Object\":null,\"Bee.Tun",
+      "Inputs": [],
+      "Outputs": [
+        "Library/Bee/artifacts/csharpactions/WebGL Build.framework.js.gz_4sun.info"
+      ],
+      "DebugActionIndex": 444
+    },
+    {
+      "Annotation": "GzipMarker D:/Unity Proyects/WebGL Build/Build/WebGL Build.framework.js.gz",
+      "DisplayName": "GzipMarker WebGL Build.framework.js",
+      "Action": "\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.22f1\\Editor\\Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.22f1\\Editor\\Data\\PlaybackEngines\\WebGLSupport\\WebGLPlayerBuildProgram.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/Bee;C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Tools/BuildPipeline\" invoke_static_method \"Library\\Bee\\artifacts\\csharpactions\\WebGL Build.framework.js.gz_4sun.info\"",
       "Inputs": [
-        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm"
+        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js.unmarked",
+        "Library/Bee/artifacts/csharpactions/WebGL Build.framework.js.gz_4sun.info",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/modules.asset",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/WebGLPlayerBuildProgram.Data.dll",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/WebGLPlayerBuildProgram.exe"
       ],
       "Outputs": [
-        "D:/Unity Proyects/WebGL Build/Build/WebGL Build.wasm.br"
+        "D:/Unity Proyects/WebGL Build/Build/WebGL Build.framework.js.gz"
+      ],
+      "ToBuildDependencies": [
+        443,
+        444
+      ],
+      "OverwriteOutputs": false,
+      "AllowUnexpectedOutput": true,
+      "Env": [],
+      "DebugActionIndex": 445
+    },
+    {
+      "Annotation": "7z Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm.unmarked",
+      "DisplayName": "7z build.wasm",
+      "Action": "cd \"D:/Unity Proyects/Boss-Rush/Boss rush/Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Tools/7z.exe\" a -tgzip \"D:/Unity Proyects/Boss-Rush/Boss rush/Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm.unmarked\" \"build.wasm\"",
+      "Inputs": [
+        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Tools/7z.exe"
+      ],
+      "Outputs": [
+        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm.unmarked"
       ],
       "ToBuildDependencies": [
         440
@@ -22674,7 +22719,44 @@
       "OverwriteOutputs": false,
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 444
+      "DebugActionIndex": 446
+    },
+    {
+      "Annotation": "WriteText Library/Bee/artifacts/csharpactions/WebGL Build.wasm.gz_hf7z.info",
+      "DisplayName": "Writing WebGL Build.wasm.gz_hf7z.info",
+      "ActionType": "WriteFile",
+      "PayloadOffset": 186185,
+      "PayloadLength": 472,
+      "PayloadDebugContentSnippet": "{\"System.Object\":null,\"Bee.Tun",
+      "Inputs": [],
+      "Outputs": [
+        "Library/Bee/artifacts/csharpactions/WebGL Build.wasm.gz_hf7z.info"
+      ],
+      "DebugActionIndex": 447
+    },
+    {
+      "Annotation": "GzipMarker D:/Unity Proyects/WebGL Build/Build/WebGL Build.wasm.gz",
+      "DisplayName": "GzipMarker WebGL Build.wasm",
+      "Action": "\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.22f1\\Editor\\Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.22f1\\Editor\\Data\\PlaybackEngines\\WebGLSupport\\WebGLPlayerBuildProgram.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/Bee;C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Tools/BuildPipeline\" invoke_static_method \"Library\\Bee\\artifacts\\csharpactions\\WebGL Build.wasm.gz_hf7z.info\"",
+      "Inputs": [
+        "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm.unmarked",
+        "Library/Bee/artifacts/csharpactions/WebGL Build.wasm.gz_hf7z.info",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/modules.asset",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/WebGLPlayerBuildProgram.Data.dll",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/WebGLPlayerBuildProgram.exe"
+      ],
+      "Outputs": [
+        "D:/Unity Proyects/WebGL Build/Build/WebGL Build.wasm.gz"
+      ],
+      "ToBuildDependencies": [
+        446,
+        447
+      ],
+      "OverwriteOutputs": false,
+      "AllowUnexpectedOutput": true,
+      "Env": [],
+      "DebugActionIndex": 448
     },
     {
       "Annotation": "CopyFiles Temp/EditorBuildOutput/UnityLinkerToEditorData.json",
@@ -22689,7 +22771,7 @@
       "ToBuildDependencies": [
         4
       ],
-      "DebugActionIndex": 445
+      "DebugActionIndex": 449
     },
     {
       "Annotation": "CopyFiles Temp/EditorBuildOutput/MethodMap.tsv",
@@ -22704,20 +22786,20 @@
       "ToBuildDependencies": [
         6
       ],
-      "DebugActionIndex": 446
+      "DebugActionIndex": 450
     },
     {
       "Annotation": "WriteText Library/Bee/artifacts/csharpactions/webgl.data_qnm2.info",
       "DisplayName": "Writing webgl.data_qnm2.info",
       "ActionType": "WriteFile",
-      "PayloadOffset": 185583,
+      "PayloadOffset": 186745,
       "PayloadLength": 1864,
       "PayloadDebugContentSnippet": "{\"System.Collections.Generic.D",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/csharpactions/webgl.data_qnm2.info"
       ],
-      "DebugActionIndex": 447
+      "DebugActionIndex": 451
     },
     {
       "Annotation": "Assemble WebGL Data Library/Bee/artifacts/WebGL/webgl.data",
@@ -22743,35 +22825,73 @@
       "ToBuildDependencies": [
         2,
         6,
-        447
+        451
       ],
       "OverwriteOutputs": false,
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 448
+      "DebugActionIndex": 452
     },
     {
-      "Annotation": "Brotli D:/Unity Proyects/WebGL Build/Build/WebGL Build.data.br",
-      "DisplayName": "Brotli WebGL Build.data",
-      "Action": "\"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Brotli/win_x86_64/brotli.exe\" -o \"D:/Unity Proyects/WebGL Build/Build/WebGL Build.data.br\" -i \"Library/Bee/artifacts/WebGL/webgl.data\" --comment \"UnityWeb Compressed Content (brotli)\"",
+      "Annotation": "7z Library/Bee/artifacts/WebGL/webgl.data.unmarked",
+      "DisplayName": "7z webgl.data",
+      "Action": "cd \"D:/Unity Proyects/Boss-Rush/Boss rush/Library/Bee/artifacts/WebGL\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Tools/7z.exe\" a -tgzip \"D:/Unity Proyects/Boss-Rush/Boss rush/Library/Bee/artifacts/WebGL/webgl.data.unmarked\" \"webgl.data\"",
       "Inputs": [
-        "Library/Bee/artifacts/WebGL/webgl.data"
+        "Library/Bee/artifacts/WebGL/webgl.data",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Tools/7z.exe"
       ],
       "Outputs": [
-        "D:/Unity Proyects/WebGL Build/Build/WebGL Build.data.br"
+        "Library/Bee/artifacts/WebGL/webgl.data.unmarked"
       ],
       "ToBuildDependencies": [
-        448
+        452
       ],
       "OverwriteOutputs": false,
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 449
+      "DebugActionIndex": 453
+    },
+    {
+      "Annotation": "WriteText Library/Bee/artifacts/csharpactions/WebGL Build.data.gz_f294.info",
+      "DisplayName": "Writing WebGL Build.data.gz_f294.info",
+      "ActionType": "WriteFile",
+      "PayloadOffset": 188706,
+      "PayloadLength": 449,
+      "PayloadDebugContentSnippet": "{\"System.Object\":null,\"Bee.Tun",
+      "Inputs": [],
+      "Outputs": [
+        "Library/Bee/artifacts/csharpactions/WebGL Build.data.gz_f294.info"
+      ],
+      "DebugActionIndex": 454
+    },
+    {
+      "Annotation": "GzipMarker D:/Unity Proyects/WebGL Build/Build/WebGL Build.data.gz",
+      "DisplayName": "GzipMarker WebGL Build.data",
+      "Action": "\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.22f1\\Editor\\Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.22f1\\Editor\\Data\\PlaybackEngines\\WebGLSupport\\WebGLPlayerBuildProgram.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/Bee;C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Tools/BuildPipeline\" invoke_static_method \"Library\\Bee\\artifacts\\csharpactions\\WebGL Build.data.gz_f294.info\"",
+      "Inputs": [
+        "Library/Bee/artifacts/WebGL/webgl.data.unmarked",
+        "Library/Bee/artifacts/csharpactions/WebGL Build.data.gz_f294.info",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/modules.asset",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/WebGLPlayerBuildProgram.Data.dll",
+        "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/WebGLPlayerBuildProgram.exe"
+      ],
+      "Outputs": [
+        "D:/Unity Proyects/WebGL Build/Build/WebGL Build.data.gz"
+      ],
+      "ToBuildDependencies": [
+        453,
+        454
+      ],
+      "OverwriteOutputs": false,
+      "AllowUnexpectedOutput": true,
+      "Env": [],
+      "DebugActionIndex": 455
     },
     {
       "Annotation": "PreprocessJS Library/Bee/artifacts/WebGLWebGL Build.loader.js",
       "DisplayName": "PreprocessJS WebGLWebGL Build.loader",
-      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='UnityLoader/UnityLoader.js'\"  \"locals.outputPath='D\\x3a/Unity Proyects/Boss\\x2dRush/Boss rush/Library/Bee/artifacts/WebGLWebGL Build.loader.js'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=true\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Boss rush \\x2d TDJ4'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=1920\" \"HEIGHT=1080\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGL Build.data.br'\" \"FRAMEWORK_FILENAME='WebGL Build.framework.js.br'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGL Build.wasm.br'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.22f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\"",
+      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='UnityLoader/UnityLoader.js'\"  \"locals.outputPath='D\\x3a/Unity Proyects/Boss\\x2dRush/Boss rush/Library/Bee/artifacts/WebGLWebGL Build.loader.js'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=true\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Boss rush \\x2d TDJ4'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGL Build.data.gz'\" \"FRAMEWORK_FILENAME='WebGL Build.framework.js.gz'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGL Build.wasm.gz'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.22f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"PRODUCT_DESCRIPTION=''\"",
       "Inputs": [
         "UnityLoader/UnityLoader.js"
       ],
@@ -22780,7 +22900,7 @@
       ],
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 450
+      "DebugActionIndex": 456
     },
     {
       "Annotation": "CopyFiles D:/Unity Proyects/WebGL Build/Build/WebGL Build.loader.js",
@@ -22793,14 +22913,14 @@
         "D:/Unity Proyects/WebGL Build/Build/WebGL Build.loader.js"
       ],
       "ToBuildDependencies": [
-        450
+        456
       ],
-      "DebugActionIndex": 451
+      "DebugActionIndex": 457
     },
     {
       "Annotation": "PreprocessJS D:/Unity Proyects/WebGL Build/index.html",
       "DisplayName": "PreprocessJS index",
-      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/index.html'\"  \"locals.outputPath='D\\x3a/Unity Proyects/WebGL Build/index.html'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Boss rush \\x2d TDJ4'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=1920\" \"HEIGHT=1080\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGL Build.data.br'\" \"FRAMEWORK_FILENAME='WebGL Build.framework.js.br'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGL Build.wasm.br'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.22f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"LOADER_FILENAME='WebGL Build.loader.js'\"",
+      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/index.html'\"  \"locals.outputPath='D\\x3a/Unity Proyects/WebGL Build/index.html'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Boss rush \\x2d TDJ4'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGL Build.data.gz'\" \"FRAMEWORK_FILENAME='WebGL Build.framework.js.gz'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGL Build.wasm.gz'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.22f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"PRODUCT_DESCRIPTION=''\" \"LOADER_FILENAME='WebGL Build.loader.js'\"",
       "Inputs": [
         "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/index.html"
       ],
@@ -22809,7 +22929,7 @@
       ],
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 452
+      "DebugActionIndex": 458
     },
     {
       "Annotation": "CopyFiles D:/Unity Proyects/WebGL Build/TemplateData/favicon.ico",
@@ -22821,7 +22941,7 @@
       "Outputs": [
         "D:/Unity Proyects/WebGL Build/TemplateData/favicon.ico"
       ],
-      "DebugActionIndex": 453
+      "DebugActionIndex": 459
     },
     {
       "Annotation": "CopyFiles D:/Unity Proyects/WebGL Build/TemplateData/fullscreen-button.png",
@@ -22833,7 +22953,7 @@
       "Outputs": [
         "D:/Unity Proyects/WebGL Build/TemplateData/fullscreen-button.png"
       ],
-      "DebugActionIndex": 454
+      "DebugActionIndex": 460
     },
     {
       "Annotation": "CopyFiles D:/Unity Proyects/WebGL Build/TemplateData/MemoryProfiler.png",
@@ -22845,7 +22965,7 @@
       "Outputs": [
         "D:/Unity Proyects/WebGL Build/TemplateData/MemoryProfiler.png"
       ],
-      "DebugActionIndex": 455
+      "DebugActionIndex": 461
     },
     {
       "Annotation": "CopyFiles D:/Unity Proyects/WebGL Build/TemplateData/progress-bar-empty-dark.png",
@@ -22857,7 +22977,7 @@
       "Outputs": [
         "D:/Unity Proyects/WebGL Build/TemplateData/progress-bar-empty-dark.png"
       ],
-      "DebugActionIndex": 456
+      "DebugActionIndex": 462
     },
     {
       "Annotation": "CopyFiles D:/Unity Proyects/WebGL Build/TemplateData/progress-bar-empty-light.png",
@@ -22869,7 +22989,7 @@
       "Outputs": [
         "D:/Unity Proyects/WebGL Build/TemplateData/progress-bar-empty-light.png"
       ],
-      "DebugActionIndex": 457
+      "DebugActionIndex": 463
     },
     {
       "Annotation": "CopyFiles D:/Unity Proyects/WebGL Build/TemplateData/progress-bar-full-dark.png",
@@ -22881,7 +23001,7 @@
       "Outputs": [
         "D:/Unity Proyects/WebGL Build/TemplateData/progress-bar-full-dark.png"
       ],
-      "DebugActionIndex": 458
+      "DebugActionIndex": 464
     },
     {
       "Annotation": "CopyFiles D:/Unity Proyects/WebGL Build/TemplateData/progress-bar-full-light.png",
@@ -22893,12 +23013,12 @@
       "Outputs": [
         "D:/Unity Proyects/WebGL Build/TemplateData/progress-bar-full-light.png"
       ],
-      "DebugActionIndex": 459
+      "DebugActionIndex": 465
     },
     {
       "Annotation": "PreprocessJS D:/Unity Proyects/WebGL Build/TemplateData/style.css",
       "DisplayName": "PreprocessJS style",
-      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/style.css'\"  \"locals.outputPath='D\\x3a/Unity Proyects/WebGL Build/TemplateData/style.css'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Boss rush \\x2d TDJ4'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=1920\" \"HEIGHT=1080\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGL Build.data.br'\" \"FRAMEWORK_FILENAME='WebGL Build.framework.js.br'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGL Build.wasm.br'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.22f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"LOADER_FILENAME='WebGL Build.loader.js'\"",
+      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/style.css'\"  \"locals.outputPath='D\\x3a/Unity Proyects/WebGL Build/TemplateData/style.css'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Boss rush \\x2d TDJ4'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebGL Build.data.gz'\" \"FRAMEWORK_FILENAME='WebGL Build.framework.js.gz'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebGL Build.wasm.gz'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=false\" \"USE_WEBGL_2_0=true\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2022.3.22f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"PRODUCT_DESCRIPTION=''\" \"LOADER_FILENAME='WebGL Build.loader.js'\"",
       "Inputs": [
         "C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/style.css"
       ],
@@ -22907,7 +23027,7 @@
       ],
       "AllowUnexpectedOutput": true,
       "Env": [],
-      "DebugActionIndex": 460
+      "DebugActionIndex": 466
     },
     {
       "Annotation": "CopyFiles D:/Unity Proyects/WebGL Build/TemplateData/unity-logo-dark.png",
@@ -22919,7 +23039,7 @@
       "Outputs": [
         "D:/Unity Proyects/WebGL Build/TemplateData/unity-logo-dark.png"
       ],
-      "DebugActionIndex": 461
+      "DebugActionIndex": 467
     },
     {
       "Annotation": "CopyFiles D:/Unity Proyects/WebGL Build/TemplateData/unity-logo-light.png",
@@ -22931,7 +23051,7 @@
       "Outputs": [
         "D:/Unity Proyects/WebGL Build/TemplateData/unity-logo-light.png"
       ],
-      "DebugActionIndex": 462
+      "DebugActionIndex": 468
     },
     {
       "Annotation": "CopyFiles D:/Unity Proyects/WebGL Build/TemplateData/webgl-logo.png",
@@ -22943,7 +23063,7 @@
       "Outputs": [
         "D:/Unity Proyects/WebGL Build/TemplateData/webgl-logo.png"
       ],
-      "DebugActionIndex": 463
+      "DebugActionIndex": 469
     },
     {
       "Annotation": "CopyFiles D:/Unity Proyects/WebGL Build/TemplateData/webmemd-icon.png",
@@ -22955,7 +23075,7 @@
       "Outputs": [
         "D:/Unity Proyects/WebGL Build/TemplateData/webmemd-icon.png"
       ],
-      "DebugActionIndex": 464
+      "DebugActionIndex": 470
     },
     {
       "Annotation": "Player",
@@ -22965,17 +23085,11 @@
       "ToBuildDependencies": [
         4,
         436,
-        443,
-        444,
         445,
-        446,
+        448,
         449,
-        451,
-        452,
-        453,
-        454,
+        450,
         455,
-        456,
         457,
         458,
         459,
@@ -22983,10 +23097,16 @@
         461,
         462,
         463,
-        464
+        464,
+        465,
+        466,
+        467,
+        468,
+        469,
+        470
       ],
       "OverwriteOutputs": false,
-      "DebugActionIndex": 465
+      "DebugActionIndex": 471
     }
   ],
   "FileSignatures": [
@@ -23356,7 +23476,7 @@
   ],
         "NamedNodes": {
           "all_tundra_nodes": 0,
-          "Player": 465
+          "Player": 471
         }
 ,  "DefaultNodes": [
     0

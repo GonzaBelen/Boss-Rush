@@ -40,9 +40,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Parry")]
     [SerializeField] private float parryCoolDown;
-    private bool isParry = false;
+    public bool isParry = false;
     private bool canParry = true;
-    private float parryTime = 0.5f;
+    private float parryTime = 0.1f;
 
     [Header("Weapon")]
     private Vector2 pointerPosition;
@@ -276,11 +276,11 @@ public class PlayerController : MonoBehaviour
     private IEnumerator ParryCoroutine()
     {
         canParry = false;
+        isParry = true;
         yield return new WaitForSeconds(parryTime);
         isParry = false;
         yield return new WaitForSeconds(parryCoolDown);
         canParry = true;
-        isParry = false;
     }
 
     public void Death()

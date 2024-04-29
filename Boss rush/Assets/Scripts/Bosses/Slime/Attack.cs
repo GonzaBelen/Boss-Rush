@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Attack : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Attack : MonoBehaviour
     [SerializeField] public float damage;
     private PolygonCollider2D polygonCollider2D;
     public bool isAtacking = false;
+    public UnityEvent Event;
 
     private void Start ()
     {
@@ -26,11 +28,18 @@ public class Attack : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Health health = collision.gameObject.GetComponent<Health>();
-            if (health != null)
+            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+            if (playerController.isParry)
             {
-                health.GetHit(damage, gameObject);
-                knockback.PlayFeedback(gameObject);
+                Event?.Invoke();
+            } else
+            {
+                Health health = collision.gameObject.GetComponent<Health>();
+                if (health != null)
+                {
+                    health.GetHit(damage, gameObject);
+                    knockback.PlayFeedback(gameObject);
+                }
             }
         }
         isAtacking = true;

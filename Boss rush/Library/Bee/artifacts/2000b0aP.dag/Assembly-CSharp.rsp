@@ -312,6 +312,7 @@
 "Assets/Scripts/Entities/Death.cs"
 "Assets/Scripts/Entities/Health.cs"
 "Assets/Scripts/Entities/Knockback.cs"
+"Assets/Scripts/Entities/ParryController.cs"
 "Assets/Scripts/Obstacles/PeakController.cs"
 "Assets/Scripts/Player/InputSystemHelper.cs"
 "Assets/Scripts/Player/PlayerController.cs"

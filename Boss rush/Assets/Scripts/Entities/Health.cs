@@ -11,8 +11,9 @@ public class Health : MonoBehaviour
     [SerializeField] public float armor;
     public UnityEvent<GameObject> OnHitWithReference;
     public UnityEvent<GameObject> OnDeathWithReference;
-    [SerializeField] private bool isDead = false;
+    [SerializeField] public bool isDead = false;
     public bool canHurt = true;
+    private bool weakPointDamage = false;
 
     private void Start()
     {
@@ -51,10 +52,16 @@ public class Health : MonoBehaviour
             //Debug.Log("Si paso de aqui es porque detecto que se lo puede daniar");
             return;
         }
-        amount *= (100 - armor) / 100;
-        currentHealth -= amount;
+        if (weakPointDamage)
+        {
+            amount *= 1.5f;
+            currentHealth -= amount;
+        } else
+        {
+            amount *= (100 - armor) / 100;
+            currentHealth -= amount;
+        }
         Debug.Log(amount);
-
         if (currentHealth > 0)
         {
             //Debug.Log("Si paso aqui entonces se esta ejecutando el danio");
@@ -80,5 +87,15 @@ public class Health : MonoBehaviour
     public void NotInmunity()
     {
         canHurt = false;
+    }
+
+    public void OnWeakPoint()
+    {
+        weakPointDamage = true;
+    }
+
+    public void OnWeakPointEnd()
+    {
+        weakPointDamage = false;
     }
 }

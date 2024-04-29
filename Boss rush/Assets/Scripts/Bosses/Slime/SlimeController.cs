@@ -11,6 +11,7 @@ public class SlimeController : MonoBehaviour
     private Attack attack;
     private Health health;
     private CooldownController CooldownController;
+    private ParryController parryController;
     private PolygonCollider2D polygonCollider2D;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject player;
@@ -30,6 +31,7 @@ public class SlimeController : MonoBehaviour
         knockback = GetComponent<Knockback>();
         attack = GetComponentInChildren<Attack>();
         health = GetComponent<Health>();
+        parryController = GetComponent<ParryController>();;
         CooldownController = GetComponent<CooldownController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         halfHealth = health.maxHealth * 0.5f;
@@ -42,10 +44,10 @@ public class SlimeController : MonoBehaviour
             return;
         }
 
-        //if (health.currentHealth < halfHealth && !isAlreadyInSecondFase)
-        //{
-        //    StartCoroutine(SecondFaseCoroutine());
-        //}
+        if (health.currentHealth < halfHealth && !isAlreadyInSecondFase)
+        {
+           StartCoroutine(SecondFaseCoroutine());
+        }
 
         if (canMove)
         {
@@ -87,6 +89,10 @@ public class SlimeController : MonoBehaviour
             Health health = collision.gameObject.GetComponent<Health>();
             if (health != null)
             {
+                if (parryController.isInWeakPoint)
+                {
+                    return;
+                }
                 health.GetHit(collisionDamage, gameObject);
                 knockback.PlayFeedback(gameObject);
             }
@@ -123,6 +129,16 @@ public class SlimeController : MonoBehaviour
         CooldownController.attackCooldown *= 0.5f;
         CooldownController.jumpCooldown *= 0.5f;
         attack.damage *= 1.5f;
-        spriteRenderer.material.color = new Color(225, 138, 109,225);
+        spriteRenderer.material.SetColor("_Color", Color.red);;
+    }
+
+    public void CanMove()
+    {
+        canMove = true;
+    }
+
+    public void CantMove()
+    {
+        canMove = false;
     }
 }
