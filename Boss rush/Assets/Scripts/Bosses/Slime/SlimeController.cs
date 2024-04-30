@@ -21,7 +21,7 @@ public class SlimeController : MonoBehaviour
     private float halfHealth;
     public bool canMove;
     public bool waitToMove = false;
-    private bool isAlreadyInSecondFase = false;
+    public bool isAlreadyInSecondFase = false;
 
     private void Start()
     {
@@ -130,6 +130,7 @@ public class SlimeController : MonoBehaviour
         CooldownController.jumpCooldown *= 0.5f;
         attack.damage *= 1.5f;
         spriteRenderer.material.SetColor("_Color", Color.red);;
+        CooldownController.StartMiniSlimeCoroutine();
     }
 
     public void CanMove()

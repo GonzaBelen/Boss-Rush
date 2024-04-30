@@ -18,12 +18,18 @@ public class Health : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);        
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(maxHealth); 
+        }
     }
     
     private void Update()
     {
-        healthBar.SetHealth(currentHealth);
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(currentHealth);
+        }
     }
     
     public void InitializeHealth(float healthValue)
@@ -72,7 +78,7 @@ public class Health : MonoBehaviour
             OnDeathWithReference?.Invoke(sender);
             isDead = true;
             StopAllCoroutines();
-            if (gameObject.layer == LayerMask.NameToLayer("Player"))
+            if (gameObject.layer == LayerMask.NameToLayer("Player") || gameObject.layer == LayerMask.NameToLayer("Enemie"))
             {
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemie"), true);
             }            

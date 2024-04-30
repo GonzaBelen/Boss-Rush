@@ -76,6 +76,8 @@
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\InputSystemHelper.cs" />
     <Compile Include="Assets\Scripts\Bosses\Slime\Jump.cs" />
+    <Compile Include="Assets\Scripts\Bosses\Slime\Mini Slime\MiniSlimeController.cs" />
+    <Compile Include="Assets\Scripts\Bosses\Slime\Mini Slime\Randomizer.cs" />
     <Compile Include="Assets\Scripts\Bosses\Slime\RangeActivation.cs" />
     <Compile Include="Assets\Scripts\Entities\AnimatorEventHelper.cs" />
     <Compile Include="Assets\Scripts\UI\VigorBar.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\UI\SceneController.cs" />
     <Compile Include="Assets\Scripts\Obstacles\PeakController.cs" />
+    <Compile Include="Assets\Scripts\Bosses\Slime\MiniSlimeGenerator.cs" />
     <Compile Include="Assets\Scripts\Entities\Health.cs" />
     <Compile Include="Assets\Scripts\Bosses\Slime\Attack.cs" />
   </ItemGroup>

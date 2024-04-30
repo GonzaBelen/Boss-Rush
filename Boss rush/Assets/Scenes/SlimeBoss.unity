@@ -1083,6 +1083,7 @@ GameObject:
   - component: {fileID: 907235233}
   - component: {fileID: 907235234}
   - component: {fileID: 907235235}
+  - component: {fileID: 907235236}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Slime
@@ -1205,6 +1206,7 @@ MonoBehaviour:
   collisionDamage: 30
   canMove: 0
   waitToMove: 0
+  isAlreadyInSecondFase: 0
 --- !u!114 &907235226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1350,6 +1352,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  miniSlimeCooldown: 30
 --- !u!114 &907235230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1708,6 +1711,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &907235236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907235219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb420d1be41770a4a8314ed9736ea92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniSlime: {fileID: 3133112101157681309, guid: 64b22c1bcebdfd94aa499e8e7d34353c, type: 3}
 --- !u!1 &1009665106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,7 +2147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6466892017134979686, guid: 9abdc2a24d61b6843ae41457a94d7cde, type: 3}
       propertyPath: damage
-      value: 25
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

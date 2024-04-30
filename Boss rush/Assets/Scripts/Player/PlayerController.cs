@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float parryCoolDown;
     public bool isParry = false;
     private bool canParry = true;
-    private float parryTime = 0.1f;
+    private float parryTime = 0.075f;
 
     [Header("Weapon")]
     private Vector2 pointerPosition;
@@ -235,7 +235,6 @@ public class PlayerController : MonoBehaviour
     public IEnumerator Dash()
     {
         isDashing = true;
-        inmunity = true;
         canDash = false;
         canMove = false;
         gravity = 0f;
@@ -268,7 +267,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
         rb2D.gravityScale = 1.75f;
         isDashing = false;
-        inmunity = false;
         yield return new WaitForSeconds(coolDown);
         canDash = true;
     }

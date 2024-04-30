@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class CooldownController : MonoBehaviour
 {
     private ParryController parryController;
+    private MiniSlimeGenerator miniSlimeGenerator;
+    private SlimeController slimeController;
     
     [Header("Jump")]
     private Jump jump;
@@ -22,6 +24,10 @@ public class CooldownController : MonoBehaviour
     public UnityEvent OnBeginCooldownAttack;
     public UnityEvent OnDoneCooldownAttack;
     public UnityEvent OnBeginJump;
+
+    [Header("Mini Slime")]
+    [SerializeField] private float miniSlimeCooldown;
+    private bool canInstantiate = false;
     
     private void Start()
     {
@@ -29,6 +35,8 @@ public class CooldownController : MonoBehaviour
         attack = GetComponentInChildren<Attack>();
         jump = GetComponent<Jump>();
         parryController = GetComponent<ParryController>();
+        miniSlimeGenerator = GetComponent<MiniSlimeGenerator>();
+        slimeController = GetComponent<SlimeController>();
     }
 
     private void Update()
@@ -47,6 +55,13 @@ public class CooldownController : MonoBehaviour
         {
             StartCoroutine(DelayJump());
             stopJump = true;
+        }
+
+        if (canInstantiate && slimeController.isAlreadyInSecondFase)
+        {
+            miniSlimeGenerator.InstantiateMiniSlime();
+            StartCoroutine(TimeToMove());
+            StartCoroutine(MiniSlimeInstantiateCooldown());
         }
     }
     
@@ -76,5 +91,24 @@ public class CooldownController : MonoBehaviour
         OnBeginJump?.Invoke();
         yield return new WaitForSeconds(delayBetweenAttaks);
         jump.JumpAction();
+    }
+
+    private IEnumerator MiniSlimeInstantiateCooldown()
+    {
+        canInstantiate = false;
+        yield return new WaitForSeconds(miniSlimeCooldown);
+        canInstantiate = true;
+    }
+
+    public void StartMiniSlimeCoroutine()
+    {
+        canInstantiate = true;
+    }
+
+    private IEnumerator TimeToMove()
+    {
+        slimeController.waitToMove = true;
+        yield return new WaitForSeconds(3);
+        slimeController.waitToMove = false;
     }
 }
