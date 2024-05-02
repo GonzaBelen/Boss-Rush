@@ -10,8 +10,10 @@ public class SlimeController : MonoBehaviour
     private Knockback knockback;
     private Attack attack;
     private Health health;
-    private CooldownController CooldownController;
+    private CooldownController cooldownController;
     private ParryController parryController;
+    private SecondFaseController secondFaseController;
+    private RangeActivation rangeActivation;
     private PolygonCollider2D polygonCollider2D;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject player;
@@ -22,6 +24,8 @@ public class SlimeController : MonoBehaviour
     public bool canMove;
     public bool waitToMove = false;
     public bool isAlreadyInSecondFase = false;
+    public bool animationHelper;
+    private bool attackAnimationControl;
 
     private void Start()
     {
@@ -32,21 +36,23 @@ public class SlimeController : MonoBehaviour
         attack = GetComponentInChildren<Attack>();
         health = GetComponent<Health>();
         parryController = GetComponent<ParryController>();;
-        CooldownController = GetComponent<CooldownController>();
+        cooldownController = GetComponent<CooldownController>();
+        secondFaseController = GetComponent<SecondFaseController>();
+        rangeActivation = GetComponent<RangeActivation>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         halfHealth = health.maxHealth * 0.5f;
     }
     
     private void Update()
     {
-        if (attack.isAtacking)
+        if (attack.isAtacking || secondFaseController.animationControl)
         {
             return;
         }
 
         if (health.currentHealth < halfHealth && !isAlreadyInSecondFase)
         {
-           StartCoroutine(SecondFaseCoroutine());
+            StartCoroutine(SecondFaseCoroutine());
         }
 
         if (canMove)
@@ -62,15 +68,46 @@ public class SlimeController : MonoBehaviour
             canMove = true;
         }
 
+        if (secondFaseController.animationControl)
+        {
+            animator.SetTrigger("Damaged");
+            return;
+        }
+
         if (canMove && jump.isGrounded)
         {
-            animator.SetTrigger("Move");
+            if (!isAlreadyInSecondFase)
+            {
+                animator.SetTrigger("Move");
+                return;
+            } else
+            {
+                animator.SetTrigger("MoveAngry");
+                return;
+            }
+            
         } else if (!canMove && jump.isGrounded)
         {
-            animator.SetTrigger("Idle");
+            if (!isAlreadyInSecondFase)
+            {
+                animator.SetTrigger("Idle");
+                return;
+            } else
+            {
+                animator.SetTrigger("IdleAngry");
+                return;
+            }
         } else if (!jump.isGrounded)
         {
-            animator.SetTrigger("Jump");
+            if (!isAlreadyInSecondFase)
+            {
+                animator.SetTrigger("Jump");
+                return;
+            } else
+            {
+                animator.SetTrigger("JumpAngry");
+                return;
+            }
         }
     }
 
@@ -120,17 +157,17 @@ public class SlimeController : MonoBehaviour
         yield return new WaitForSeconds(0);
     }
 
-    private void SecondFase()
+    public void SecondFase()
     {
+        animator.SetBool("Helper", false);
+        secondFaseController.enabled = true;
         health.armor *= 1.5f;
         movementSpeed *= 1.5f;
         collisionDamage *= 1.5f;
-        CooldownController.delayBetweenAttaks *= 0.5f;
-        CooldownController.attackCooldown *= 0.5f;
-        CooldownController.jumpCooldown *= 0.5f;
-        attack.damage *= 1.5f;
-        spriteRenderer.material.SetColor("_Color", Color.red);;
-        CooldownController.StartMiniSlimeCoroutine();
+        cooldownController.delayBetweenAttaks *= 0.5f;
+        cooldownController.attackCooldown *= 0.5f;
+        cooldownController.jumpCooldown *= 0.5f;
+        attack.damage *= 1.5f;       
     }
 
     public void CanMove()
@@ -141,5 +178,14 @@ public class SlimeController : MonoBehaviour
     public void CantMove()
     {
         canMove = false;
+    }
+
+    public void AnimationHelper()
+    {
+        if (isAlreadyInSecondFase)
+        {
+            animator.ResetTrigger("Attack");
+            animator.SetTrigger("Damaged");
+        }
     }
 }

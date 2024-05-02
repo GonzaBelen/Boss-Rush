@@ -2,12 +2,23 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AnimatorEventHelper
+    - Attack
+    - CooldownController
+    - Death
+    - DeathCollider
     - Health
     - HealthBar
     - InputSystemHelper
+    - Jump
     - Knockback
-    - PeakController
+    - MiniSlimeController
+    - MiniSlimeGenerator
+    - ParryController
     - PlayerController
+    - RangeActivation
+    - SceneController
+    - SecondFaseController
+    - SlimeController
     - Vigor
     - VigorBar
     - WeaponParent
@@ -122,12 +133,12 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.Behaviour
-    methodName: set_enabled
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.Behaviour
-    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: WeaponParent
+    methodName: ResetIsAttacking
+  - assembly: Assembly-CSharp
+    fullTypeName: WeaponParent
+    methodName: DetectColliders
   - assembly: Assembly-CSharp
     fullTypeName: PlayerController
     methodName: Move
@@ -147,6 +158,15 @@ ScriptsOnlyBuild:
     fullTypeName: PlayerController
     methodName: Dash
   - assembly: Assembly-CSharp
+    fullTypeName: Death
+    methodName: DeathAnimation
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: Assembly-CSharp
     fullTypeName: PlayerController
     methodName: Death
   - assembly: UnityEngine.CoreModule
@@ -162,13 +182,103 @@ ScriptsOnlyBuild:
     fullTypeName: UnityEngine.Behaviour
     methodName: set_enabled
   - assembly: Assembly-CSharp
-    fullTypeName: WeaponParent
-    methodName: ResetIsAttacking
+    fullTypeName: SceneController
+    methodName: OpenRestartScreen
   - assembly: Assembly-CSharp
-    fullTypeName: WeaponParent
-    methodName: DetectColliders
+    fullTypeName: RangeActivation
+    methodName: TurnOnCollider
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: Attack
+    methodName: TurnOffCollider
+  - assembly: Assembly-CSharp
+    fullTypeName: RangeActivation
+    methodName: TurnOnCollider
+  - assembly: Assembly-CSharp
+    fullTypeName: RangeActivation
+    methodName: TurnOffCollider
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: Health
+    methodName: Inmunity
+  - assembly: Assembly-CSharp
+    fullTypeName: Health
+    methodName: NotInmunity
+  - assembly: Assembly-CSharp
+    fullTypeName: Death
+    methodName: DeathAnimation
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: Attack
+    methodName: AttackActivation
+  - assembly: Assembly-CSharp
+    fullTypeName: Jump
+    methodName: StopJump
+  - assembly: Assembly-CSharp
+    fullTypeName: Health
+    methodName: OnWeakPoint
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: Attack
+    methodName: TurnOffCollider
+  - assembly: Assembly-CSharp
+    fullTypeName: Health
+    methodName: OnWeakPointEnd
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: SlimeController
+    methodName: CanMove
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: Jump
+    methodName: StartJump
+  - assembly: Assembly-CSharp
+    fullTypeName: SlimeController
+    methodName: CantMove
+  - assembly: Assembly-CSharp
+    fullTypeName: Jump
+    methodName: StopJump
+  - assembly: Assembly-CSharp
+    fullTypeName: CooldownController
+    methodName: StartMiniSlimeCoroutine
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: SlimeController
+    methodName: CanMove
+  - assembly: Assembly-CSharp
+    fullTypeName: Jump
+    methodName: StartJump
+  - assembly: Assembly-CSharp
+    fullTypeName: ParryController
+    methodName: Parry
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneController
+    methodName: Restart
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/SlimeBoss.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -185,11 +295,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 50
       Script: {instanceID: 0}
+    - Class: 58
+      Script: {instanceID: 0}
     - Class: 60
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
     - Class: 62
+      Script: {instanceID: 0}
+    - Class: 66
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
@@ -202,6 +316,8 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 642}
+    - Class: 114
       Script: {instanceID: 1634}
     - Class: 114
       Script: {instanceID: 1638}
@@ -210,47 +326,69 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2422}
     - Class: 114
-      Script: {instanceID: 3028}
+      Script: {instanceID: 3030}
     - Class: 114
-      Script: {instanceID: 3216}
+      Script: {instanceID: 3218}
     - Class: 114
-      Script: {instanceID: 3302}
+      Script: {instanceID: 3304}
     - Class: 114
-      Script: {instanceID: 3602}
+      Script: {instanceID: 3604}
     - Class: 114
-      Script: {instanceID: 3684}
+      Script: {instanceID: 3686}
     - Class: 114
-      Script: {instanceID: 4074}
+      Script: {instanceID: 4026}
     - Class: 114
-      Script: {instanceID: 4380}
+      Script: {instanceID: 4078}
     - Class: 114
-      Script: {instanceID: 4534}
+      Script: {instanceID: 4252}
     - Class: 114
-      Script: {instanceID: 5016}
+      Script: {instanceID: 4386}
     - Class: 114
-      Script: {instanceID: 5098}
+      Script: {instanceID: 4540}
     - Class: 114
-      Script: {instanceID: 5444}
+      Script: {instanceID: 4700}
     - Class: 114
-      Script: {instanceID: 5638}
+      Script: {instanceID: 5024}
     - Class: 114
-      Script: {instanceID: 6340}
+      Script: {instanceID: 5054}
     - Class: 114
-      Script: {instanceID: 6444}
+      Script: {instanceID: 5108}
     - Class: 114
-      Script: {instanceID: 7200}
+      Script: {instanceID: 5224}
     - Class: 114
-      Script: {instanceID: 7434}
+      Script: {instanceID: 5456}
     - Class: 114
-      Script: {instanceID: 7942}
+      Script: {instanceID: 5650}
     - Class: 114
-      Script: {instanceID: 8384}
+      Script: {instanceID: 5750}
     - Class: 114
-      Script: {instanceID: 8530}
+      Script: {instanceID: 5868}
     - Class: 114
-      Script: {instanceID: 9326}
+      Script: {instanceID: 6356}
     - Class: 114
-      Script: {instanceID: 10350}
+      Script: {instanceID: 6460}
+    - Class: 114
+      Script: {instanceID: 7216}
+    - Class: 114
+      Script: {instanceID: 7450}
+    - Class: 114
+      Script: {instanceID: 7958}
+    - Class: 114
+      Script: {instanceID: 8182}
+    - Class: 114
+      Script: {instanceID: 8402}
+    - Class: 114
+      Script: {instanceID: 8548}
+    - Class: 114
+      Script: {instanceID: 8672}
+    - Class: 114
+      Script: {instanceID: 9110}
+    - Class: 114
+      Script: {instanceID: 9348}
+    - Class: 114
+      Script: {instanceID: 9668}
+    - Class: 114
+      Script: {instanceID: 9810}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -268,6 +406,14 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 19719996
+      Script: {instanceID: 0}
+    - Class: 156049354
+      Script: {instanceID: 0}
+    - Class: 483693784
+      Script: {instanceID: 0}
+    - Class: 1839735485
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -416,6 +562,12 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: 9a0ef06e45dbc31e9f87e3e2b2af6a37
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Randomizer
+  - hash:
+      serializedVersion: 2
       Hash: 674f22ab166efb9fbd2bbc5a88542c7e
     assemblyName: Unity.2D.IK.Runtime
     namespaceName: UnityEngine.U2D.IK
@@ -476,7 +628,7 @@ ScriptsOnlyBuild:
     className: RuleOverrideTile
   - hash:
       serializedVersion: 2
-      Hash: 3c988a334822c7360d48c74c17b8aaee
+      Hash: 3d2238d8223c255addf0ee26ad01adc7
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerController
@@ -548,7 +700,7 @@ ScriptsOnlyBuild:
     className: UnityOnDropdownValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: d460b76ca8f1d77504cce3b2ae61a10e
+      Hash: 58d2f99fe35cd88fd7a6d0e7df5d1fa0
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: AnimatorEventHelper
@@ -626,6 +778,12 @@ ScriptsOnlyBuild:
     className: VariablesAsset
   - hash:
       serializedVersion: 2
+      Hash: 7171ebccc4a0825b580846912ab293b7
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Attack
+  - hash:
+      serializedVersion: 2
       Hash: 7bdff9e91edfd9600f92a185def7e34a
     assemblyName: Unity.VisualScripting.Flow
     namespaceName: Unity.VisualScripting
@@ -660,6 +818,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnControllerColliderHitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 7d124f741289821af843aaae7d482e57
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SlimeController
   - hash:
       serializedVersion: 2
       Hash: 960935b102b3064f4b924de16426e340
@@ -714,6 +878,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: a287ab45000bd092b6c9d56e9f0a1175
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MiniSlimeController
   - hash:
       serializedVersion: 2
       Hash: 95426d463074947dcbffc797c44e779c
@@ -800,6 +970,12 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: b5b21a54bd7b5d8df6949e2bb5e0c703
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CooldownController
+  - hash:
+      serializedVersion: 2
       Hash: 1a680d9a08de79b0d2c779e78c9843b4
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
@@ -822,6 +998,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: DictionaryAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 86a88ed38b0fbece387ee8fe7632f40e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: RangeActivation
   - hash:
       serializedVersion: 2
       Hash: e7e95903ca66d58e1a7cbd71f824e16d
@@ -860,7 +1042,7 @@ ScriptsOnlyBuild:
     className: InputDeviceDebuggerWindow
   - hash:
       serializedVersion: 2
-      Hash: a7b7a86a65c4caaf9bd930716459f32d
+      Hash: ae19211731679c8388b353d565e20d7a
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Health
@@ -878,10 +1060,22 @@ ScriptsOnlyBuild:
     className: UnityOnPointerClickMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 85a67919f45dca7661656b0c89a47b5c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SecondFaseController
+  - hash:
+      serializedVersion: 2
       Hash: 14fb963022965ffa004cc4ec810b9fdd
     assemblyName: Unity.2D.Animation.Runtime
     namespaceName: UnityEngine.U2D.Animation
     className: BufferManager
+  - hash:
+      serializedVersion: 2
+      Hash: 850f38254ef00ef79eda15679484e4e5
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: DeathCollider
   - hash:
       serializedVersion: 2
       Hash: 0b63f6d3335e11939ce8790b904c8691
@@ -1172,6 +1366,12 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
+      Hash: e34cbfe8d8116e583a8594f8d09a6bd6
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Jump
+  - hash:
+      serializedVersion: 2
       Hash: 3074afe1b03a0fb081e176a4ef1b9d09
     assemblyName: Unity.InputSystem
     namespaceName: UnityEngine.InputSystem.Editor
@@ -1262,6 +1462,12 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 891e489d1d256fdb217ae0df370c1720
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MiniSlimeGenerator
+  - hash:
+      serializedVersion: 2
       Hash: 19824dd35debb3fff0983df49f8359ab
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -1340,6 +1546,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: bd35874769bfd9a68f88184b704e5f3e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Death
+  - hash:
+      serializedVersion: 2
       Hash: 67272c9c30c50b68ef1ce72ac0191c57
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1382,6 +1594,12 @@ ScriptsOnlyBuild:
     className: MultiplayerEventSystem
   - hash:
       serializedVersion: 2
+      Hash: f9845c8d0f1ce018c07beedb9ed35f9d
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SceneController
+  - hash:
+      serializedVersion: 2
       Hash: 47d50f529890b9237021f88334dc1cf6
     assemblyName: Unity.2D.Animation.Runtime
     namespaceName: UnityEngine.U2D.Animation
@@ -1410,6 +1628,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: Variables
+  - hash:
+      serializedVersion: 2
+      Hash: 6c6ab14ee4fc492c48df4f4855b03e6e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ParryController
   - hash:
       serializedVersion: 2
       Hash: b30c8635462e66ac20f4241106119f77
@@ -1466,6 +1690,12 @@ ScriptsOnlyBuild:
     className: UnityOnMouseEnterMessageListener
   - hash:
       serializedVersion: 2
+      Hash: cd0cc96244abb6d879e090ffa3b0e051
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CustomTrigger
+  - hash:
+      serializedVersion: 2
       Hash: 4fcf0bb4aff1d14a1dfcdedc4b07bd05
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
@@ -1496,5 +1726,5 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 19
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
+  - Assets/Scenes/SlimeBoss.unity
   playerPath: D:/Unity Proyects/BossRush Build/Boss rush - TDJ4.exe

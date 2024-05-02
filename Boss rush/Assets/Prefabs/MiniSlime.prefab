@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 4623830036661363081}
   - component: {fileID: 5692074857466717741}
   - component: {fileID: 5992338361121098552}
-  - component: {fileID: 5361121932324297956}
   m_Layer: 8
   m_Name: MiniSlime
   m_TagString: Slime
@@ -81,8 +80,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 463510546, guid: 438caefd821703b4386f8d752e6e2e3d, type: 3}
+  m_SortingOrder: 15
+  m_Sprite: {fileID: 2066212262, guid: 438caefd821703b4386f8d752e6e2e3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -207,10 +206,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247901cfc2fc5f54aa8fb86c7d4866ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 6281177095849215469, guid: 9abdc2a24d61b6843ae41457a94d7cde, type: 3}
   movementSpeed: 1.5
   distance: 0
   collisionDamage: 15
+  canMove: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
@@ -285,6 +284,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6796767731716536622}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   isDead: 0
   canHurt: 1
 --- !u!114 &5992338361121098552
@@ -299,20 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb64842c44905444b8791a671f3b32c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5361121932324297956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3133112101157681309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a1b99e922f93594ba2c6e99565e23f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForceVertical: 0
-  jumpForceHorizontal: 0
 --- !u!1 &6265999740961723246
 GameObject:
   m_ObjectHideFlags: 0

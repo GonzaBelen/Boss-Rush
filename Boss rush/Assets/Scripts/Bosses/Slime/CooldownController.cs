@@ -8,6 +8,7 @@ public class CooldownController : MonoBehaviour
     private ParryController parryController;
     private MiniSlimeGenerator miniSlimeGenerator;
     private SlimeController slimeController;
+    private SecondFaseController secondFaseController;
     
     [Header("Jump")]
     private Jump jump;
@@ -24,6 +25,7 @@ public class CooldownController : MonoBehaviour
     public UnityEvent OnBeginCooldownAttack;
     public UnityEvent OnDoneCooldownAttack;
     public UnityEvent OnBeginJump;
+    public bool isInAttack;
 
     [Header("Mini Slime")]
     [SerializeField] private float miniSlimeCooldown;
@@ -37,11 +39,17 @@ public class CooldownController : MonoBehaviour
         parryController = GetComponent<ParryController>();
         miniSlimeGenerator = GetComponent<MiniSlimeGenerator>();
         slimeController = GetComponent<SlimeController>();
+        secondFaseController = GetComponent<SecondFaseController>();
     }
 
     private void Update()
     {
-        if (parryController.isInWeakPoint)
+        if(isInAttack && secondFaseController.animationControl)
+        {
+            OnDoneCooldownAttack?.Invoke();
+        }
+        
+        if (parryController.isInWeakPoint || secondFaseController.animationControl)
         {
             return;
         }
@@ -80,6 +88,7 @@ public class CooldownController : MonoBehaviour
     public IEnumerator AttackCooldown()
     {
         OnBeginCooldownAttack?.Invoke();
+        isInAttack = false;
         attack.isAtacking = false;
         attack.ActiveCoroutine();
         yield return new WaitForSeconds(attackCooldown);
@@ -105,10 +114,20 @@ public class CooldownController : MonoBehaviour
         canInstantiate = true;
     }
 
+    public void StartCoutoutineTimeToMove()
+    {
+        StartCoroutine(TimeToMove());
+    }
+
     private IEnumerator TimeToMove()
     {
         slimeController.waitToMove = true;
         yield return new WaitForSeconds(3);
         slimeController.waitToMove = false;
+    }
+
+    public void IsInAttack()
+    {
+        isInAttack = true;
     }
 }

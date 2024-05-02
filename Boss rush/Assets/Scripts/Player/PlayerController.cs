@@ -96,6 +96,20 @@ public class PlayerController : MonoBehaviour
             health.canHurt = true;
         }
 
+        if (transform.localScale.x >= 0)
+        {
+            if(isDashing)
+            {
+                animator.SetTrigger("Dash");
+            }
+        } else
+        {
+            if(isDashing)
+            {
+                animator.SetTrigger("DashBack");
+            }
+        }
+
         if (isDashing || isParry)
         {
             return;
@@ -126,17 +140,36 @@ public class PlayerController : MonoBehaviour
             isMoving = true;
         }
 
-        if (isMoving && isGrounded)
+        if ((movementHor > 0 && transform.localScale.x > 0) || (movementHor < 0 && transform.localScale.x < 0))
         {
-            animator.SetTrigger("Run");
-        } else 
-        if (!isMoving && isGrounded)
+            animator.ResetTrigger("Dash");
+            animator.ResetTrigger("DashBack");
+            if (isMoving && isGrounded)
+            {
+                ActiveAnimation("Run");
+            } else 
+            if (!isMoving && isGrounded)
+            {
+                ActiveAnimation("Idle");
+            }
+            else if (!isMoving && !isGrounded)
+            {
+                ActiveAnimation("Jump");
+            }
+        } else
         {
-            animator.SetTrigger("Idle");
-        }
-        else if (!isMoving && !isGrounded)
-        {
-            animator.SetTrigger("Jump");
+            if (isMoving && isGrounded)
+            {
+                ActiveAnimation("RunBack");
+            } else 
+            if (!isMoving && isGrounded)
+            {
+                ActiveAnimation("Idle");
+            }
+            else if (!isMoving && !isGrounded)
+            {
+                ActiveAnimation("JumpBack");
+            }
         }
     }
 
@@ -286,5 +319,10 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Death");
         weapon.SetActive(false);
         inputSystemHelper.enabled = true;
+    }
+
+    private void ActiveAnimation(string name)
+    {
+        animator.SetTrigger(name);
     }
 }

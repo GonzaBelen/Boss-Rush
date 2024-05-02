@@ -50,27 +50,23 @@ public class Health : MonoBehaviour
     {
         if (isDead || !canHurt)
         {
-            //Debug.Log("Aca se llama a la funcion obteniendo el script y ejecutando el danio");
             return;
         }            
         if (sender.layer == gameObject.layer)
         {
-            //Debug.Log("Si paso de aqui es porque detecto que se lo puede daniar");
             return;
         }
         if (weakPointDamage)
         {
-            amount *= 1.5f;
-            currentHealth -= amount;
+            amount *= 1.25f;
         } else
         {
             amount *= (100 - armor) / 100;
-            currentHealth -= amount;
         }
+        currentHealth -= amount;
         Debug.Log(amount);
         if (currentHealth > 0)
         {
-            //Debug.Log("Si paso aqui entonces se esta ejecutando el danio");
             OnHitWithReference?.Invoke(sender);
         }
         else

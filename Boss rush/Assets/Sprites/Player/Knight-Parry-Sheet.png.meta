@@ -117,15 +117,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59a7d5d6bd24da243a30f12ffbe32c03
-      internalID: -679262894
+      spriteID: d115608e26eb86d49946281b8ec704e7
+      internalID: 84622054
       vertices: []
       indices: 
       edges: []
@@ -138,15 +138,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66b3361e3ded36b428b5cd708d6f0d65
-      internalID: 683639111
+      spriteID: 8837f381ff7863f4d8a1dd6b529eaa68
+      internalID: -980768565
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Knight-Parry-Sheet_0: -679262894
-      Knight-Parry-Sheet_1: 683639111
+      Knight-Parry-Sheet_0: 84622054
+      Knight-Parry-Sheet_1: -980768565
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -8,11 +8,11 @@ public class MiniSlimeController : MonoBehaviour
 {
     private Animator animator;
     private Knockback knockback;
-    [SerializeField] private GameObject player;
+    private GameObject player;
     [SerializeField] private float movementSpeed;
     [SerializeField] public float distance;
     [SerializeField] private float collisionDamage;
-    private bool canMove = false;
+    [SerializeField] private bool canMove = false;
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private Transform groundController;
     [SerializeField] private Vector3 boxDimensions;
@@ -22,6 +22,7 @@ public class MiniSlimeController : MonoBehaviour
     {
         knockback = GetComponent<Knockback>();
         animator = GetComponent<Animator>();
+        player = GameObject.FindWithTag("Player");
         StartCoroutine(WaitToMove());
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Minion"), LayerMask.NameToLayer("Enemie"), true);
     }
@@ -35,17 +36,23 @@ public class MiniSlimeController : MonoBehaviour
         
         if (canMove)
         {
-            animator.SetTrigger("Move");
-            distance = Vector2.Distance(transform.position, player.transform.position);
-            Vector2 direction = player.transform.position - transform.position;        
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
-            Flip(direction);
-        }        
+            Movement();
+        }
     }
 
     private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapBox(groundController.position, boxDimensions, 0f, whatIsGround);
+    }
+
+    private void Movement()
+    {
+        animator.SetTrigger("Move");
+        distance = Vector2.Distance(transform.position, player.transform.position);
+        Vector2 direction = player.transform.position - transform.position;        
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
+        Flip(direction);
+        Debug.Log(direction);
     }
 
     private void Flip (Vector2 lookDirection)

@@ -9,7 +9,6 @@ public class AnimatorEventHelper : MonoBehaviour
     public UnityEvent OnAttackPerformed;
     public UnityEvent OnSlimeAttackTriggered;
 
-
     public void TriggerEvent()
     {
         OnAnimationEventTriggered?.Invoke();

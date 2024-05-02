@@ -10,6 +10,7 @@ public class Jump : MonoBehaviour
     private SlimeController slimeController;
     private Health health;
     private ParryController parryController;
+    private SecondFaseController secondFaseController;
     private Rigidbody2D rb2D;
     private Animator animator;
     [SerializeField] private float jumpForceVertical;
@@ -29,6 +30,7 @@ public class Jump : MonoBehaviour
         slimeController = GetComponent<SlimeController>();
         health = GetComponent<Health>();
         parryController = GetComponent<ParryController>();
+        secondFaseController = GetComponent<SecondFaseController>();
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         jumpForceHorizontalNegative = jumpForceHorizontalPositive * -1;
@@ -37,7 +39,7 @@ public class Jump : MonoBehaviour
 
     private void Update()
     {
-        if (parryController.isInWeakPoint)
+        if (parryController.isInWeakPoint || secondFaseController.animationControl)
         {
             return;
         }
@@ -63,7 +65,7 @@ public class Jump : MonoBehaviour
     
     public void JumpAction()
     {
-        if (stopJumping || parryController.isInWeakPoint)
+        if (stopJumping || parryController.isInWeakPoint || secondFaseController.animationControl)
         {
             return;
         }
@@ -97,5 +99,18 @@ public class Jump : MonoBehaviour
     public void StartJump()
     {
         stopJumping = false;
+    }
+
+    public void StopAnimation()
+    {
+        if (!slimeController.isAlreadyInSecondFase)
+        {
+            animator.ResetTrigger("Jump");
+            animator.SetTrigger("Idle");
+        } else 
+        {
+            animator.ResetTrigger("JumpAngry");
+            animator.SetTrigger("IdleAngry"); 
+        }
     }
 }

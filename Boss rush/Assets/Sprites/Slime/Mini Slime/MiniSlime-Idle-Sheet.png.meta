@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c189c7e5aaa27274cbd44e608196c518
-      internalID: 463510546
+      spriteID: 4fb747715651052498ddee912938ec4b
+      internalID: 2066212262
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2003528685eca6745b96103c6e183286
-      internalID: -1084681915
+      spriteID: e46ae13c3928006408e60d3fd3e1e4d7
+      internalID: -620206320
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c30d90c71613c744a9096cbdc8536b5
-      internalID: -1464526172
+      spriteID: cc07a362596f2a244a8f2bbfa1d4d1b8
+      internalID: 1467030087
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee5aad6f5962e6240844666585f86669
-      internalID: -2034565469
+      spriteID: 7594421661349564189e39115f2cae50
+      internalID: 2029568269
       vertices: []
       indices: 
       edges: []
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92c996a3ad9aae24b9d072f08c619b4b
-      internalID: 166984944
+      spriteID: 9c89ea5df3df48744852cc060513753e
+      internalID: 1892073886
       vertices: []
       indices: 
       edges: []
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18186677248054345aca7a2872e24379
-      internalID: -1289755703
+      spriteID: b48dcf4e8c0eb49498eb370f127d7137
+      internalID: 2068065163
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MiniSlime-Idle-Sheet_0: 463510546
-      MiniSlime-Idle-Sheet_1: -1084681915
-      MiniSlime-Idle-Sheet_2: -1464526172
-      MiniSlime-Idle-Sheet_3: -2034565469
-      MiniSlime-Idle-Sheet_4: 166984944
-      MiniSlime-Idle-Sheet_5: -1289755703
+      MiniSlime-Idle-Sheet_0: 2066212262
+      MiniSlime-Idle-Sheet_1: -620206320
+      MiniSlime-Idle-Sheet_2: 1467030087
+      MiniSlime-Idle-Sheet_3: 2029568269
+      MiniSlime-Idle-Sheet_4: 1892073886
+      MiniSlime-Idle-Sheet_5: 2068065163
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
