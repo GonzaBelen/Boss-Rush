@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bd30f62e893bc74ab48e96856174331
-      internalID: -1265898383
+      spriteID: 511e0a5f12850e1419fa43d68d4eeaff
+      internalID: 1149266101
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b4a00301ae0d6244bab6f828dd2c4d1
-      internalID: -558948774
+      spriteID: bb3525fa1fec8f7419d6972f25039f72
+      internalID: -934596055
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37652154d10f03647b2a9c4d9db78bb5
-      internalID: 828382888
+      spriteID: 7f66f7bed353e164dbcdce768795fe20
+      internalID: -888260897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight-Dash-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 237f8dfeba8a81144a73eceec52c5491
+      internalID: -1764894167
       vertices: []
       indices: 
       edges: []
@@ -183,9 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Knight-Dash-Sheet_0: -1265898383
-      Knight-Dash-Sheet_1: -558948774
-      Knight-Dash-Sheet_2: 828382888
+      Knight-Dash-Sheet_0: 1149266101
+      Knight-Dash-Sheet_1: -934596055
+      Knight-Dash-Sheet_2: -888260897
+      Knight-Dash-Sheet_3: -1764894167
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

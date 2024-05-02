@@ -455,6 +455,12 @@
             "icon": "package/com.unity.modules.audio"
           },
           {
+            "name": "Required by Grid Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.grid"
+          },
+          {
             "name": "Required by IMGUI Module",
             "scenes": [],
             "dependencyType": 2,
@@ -521,6 +527,12 @@
             "icon": "package/com.unity.modules.textrendering"
           },
           {
+            "name": "Required by Tilemap Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.tilemap"
+          },
+          {
             "name": "Required by UI Module",
             "scenes": [],
             "dependencyType": 2,
@@ -549,6 +561,31 @@
             "scenes": [],
             "dependencyType": 2,
             "icon": "package/com.unity.modules.xr"
+          }
+        ]
+      },
+      {
+        "name": "Grid",
+        "dependencies": [
+          {
+            "name": "Grid",
+            "scenes": [
+              "Assets/Scenes/SlimeBoss.unity"
+            ],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
+            "name": "GridLayout",
+            "scenes": [],
+            "dependencyType": 1,
+            "icon": null
+          },
+          {
+            "name": "Required by Tilemap Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.tilemap"
           }
         ]
       },
@@ -693,6 +730,14 @@
             "icon": null
           },
           {
+            "name": "CompositeCollider2D",
+            "scenes": [
+              "Assets/Scenes/SlimeBoss.unity"
+            ],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
             "name": "Physics2DSettings",
             "scenes": [],
             "dependencyType": 1,
@@ -721,6 +766,12 @@
             ],
             "dependencyType": 0,
             "icon": null
+          },
+          {
+            "name": "Required by Tilemap Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.tilemap"
           }
         ]
       },
@@ -755,6 +806,12 @@
             "scenes": [],
             "dependencyType": 2,
             "icon": "package/com.unity.modules.core"
+          },
+          {
+            "name": "Required by Grid Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.grid"
           },
           {
             "name": "Required by IMGUI Module",
@@ -821,6 +878,12 @@
             "scenes": [],
             "dependencyType": 2,
             "icon": "package/com.unity.modules.textrendering"
+          },
+          {
+            "name": "Required by Tilemap Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.tilemap"
           },
           {
             "name": "Required by UI Module",
@@ -939,6 +1002,35 @@
             "scenes": [],
             "dependencyType": 2,
             "icon": "package/com.unity.modules.uielements"
+          }
+        ]
+      },
+      {
+        "name": "Tilemap",
+        "dependencies": [
+          {
+            "name": "Tilemap",
+            "scenes": [
+              "Assets/Scenes/SlimeBoss.unity"
+            ],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
+            "name": "TilemapCollider2D",
+            "scenes": [
+              "Assets/Scenes/SlimeBoss.unity"
+            ],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
+            "name": "TilemapRenderer",
+            "scenes": [
+              "Assets/Scenes/SlimeBoss.unity"
+            ],
+            "dependencyType": 0,
+            "icon": null
           }
         ]
       },

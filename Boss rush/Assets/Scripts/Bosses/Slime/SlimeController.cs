@@ -74,6 +74,11 @@ public class SlimeController : MonoBehaviour
             return;
         }
 
+        if (parryController.isInWeakPoint)
+        {
+            return;
+        }
+
         if (canMove && jump.isGrounded)
         {
             if (!isAlreadyInSecondFase)

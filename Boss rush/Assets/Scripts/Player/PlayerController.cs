@@ -96,18 +96,9 @@ public class PlayerController : MonoBehaviour
             health.canHurt = true;
         }
 
-        if (transform.localScale.x >= 0)
+        if (isDashing)
         {
-            if(isDashing)
-            {
-                animator.SetTrigger("Dash");
-            }
-        } else
-        {
-            if(isDashing)
-            {
-                animator.SetTrigger("DashBack");
-            }
+            animator.SetTrigger("Dash");
         }
 
         if (isDashing || isParry)
@@ -275,22 +266,22 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.localScale.x > 0)
             {
-                rb2D.velocity = new Vector2(transform.localScale.x * dashForce, 0f); 
+                rb2D.velocity = new Vector2(transform.localScale.x * dashForce, 0f);
             }
             else 
             {
-                rb2D.velocity = new Vector2(transform.localScale.x * dashForce * -1, 0f); 
+                rb2D.velocity = new Vector2(transform.localScale.x * dashForce * -1, 0f);
             }
         }
         else if (movementHor < 0)
         {
             if (transform.localScale.x > 0)
             {
-                rb2D.velocity = new Vector2(transform.localScale.x * dashForce * -1, 0f); 
+                rb2D.velocity = new Vector2(transform.localScale.x * dashForce * -1, 0f);
             }
             else 
             {
-                rb2D.velocity = new Vector2(transform.localScale.x * dashForce, 0f); 
+                rb2D.velocity = new Vector2(transform.localScale.x * dashForce, 0f);
             }
         }
         else

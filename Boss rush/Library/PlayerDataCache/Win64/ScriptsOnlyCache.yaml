@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AnimatorEventHelper
     - Attack
+    - CameraFit
     - CooldownController
     - Death
     - DeathCollider
@@ -229,9 +230,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: Health
     methodName: OnWeakPoint
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.Behaviour
-    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: SlimeController
+    methodName: CantMove
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.Behaviour
     methodName: set_enabled
@@ -241,9 +242,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: Health
     methodName: OnWeakPointEnd
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.Behaviour
-    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: SlimeController
+    methodName: CanMove
   - assembly: Assembly-CSharp
     fullTypeName: SlimeController
     methodName: CanMove
@@ -389,6 +390,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 9668}
     - Class: 114
       Script: {instanceID: 9810}
+    - Class: 114
+      Script: {instanceID: 34204}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1724,6 +1727,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 6effbe54bc3697fb77cd6f59ddcc8d8c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CameraFit
   platform: 19
   scenePathNames:
   - Assets/Scenes/SlimeBoss.unity

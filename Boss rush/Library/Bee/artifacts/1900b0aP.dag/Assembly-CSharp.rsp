@@ -342,6 +342,7 @@
 "Assets/Scripts/Player/PlayerController.cs"
 "Assets/Scripts/Player/Vigor.cs"
 "Assets/Scripts/Player/WeaponParent.cs"
+"Assets/Scripts/UI/CameraFit.cs"
 "Assets/Scripts/UI/HealthBar.cs"
 "Assets/Scripts/UI/SceneController.cs"
 "Assets/Scripts/UI/VigorBar.cs"

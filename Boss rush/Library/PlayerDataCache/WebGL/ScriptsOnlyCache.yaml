@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AnimatorEventHelper
     - Attack
+    - CameraFit
     - CooldownController
     - Death
     - DeathCollider
@@ -11,10 +12,13 @@ ScriptsOnlyBuild:
     - InputSystemHelper
     - Jump
     - Knockback
+    - MiniSlimeController
+    - MiniSlimeGenerator
     - ParryController
     - PlayerController
     - RangeActivation
     - SceneController
+    - SecondFaseController
     - SlimeController
     - Vigor
     - VigorBar
@@ -155,6 +159,15 @@ ScriptsOnlyBuild:
     fullTypeName: PlayerController
     methodName: Dash
   - assembly: Assembly-CSharp
+    fullTypeName: Death
+    methodName: DeathAnimation
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: Assembly-CSharp
     fullTypeName: PlayerController
     methodName: Death
   - assembly: UnityEngine.CoreModule
@@ -172,9 +185,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: SceneController
     methodName: OpenRestartScreen
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: RangeActivation
+    methodName: TurnOnCollider
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
@@ -184,9 +197,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: RangeActivation
     methodName: TurnOnCollider
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: RangeActivation
+    methodName: TurnOffCollider
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
@@ -217,9 +230,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: Health
     methodName: OnWeakPoint
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.Behaviour
-    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: SlimeController
+    methodName: CantMove
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.Behaviour
     methodName: set_enabled
@@ -229,15 +242,33 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: Health
     methodName: OnWeakPointEnd
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.Behaviour
-    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: SlimeController
+    methodName: CanMove
   - assembly: Assembly-CSharp
     fullTypeName: SlimeController
     methodName: CanMove
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.Behaviour
     methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: Jump
+    methodName: StartJump
+  - assembly: Assembly-CSharp
+    fullTypeName: SlimeController
+    methodName: CantMove
+  - assembly: Assembly-CSharp
+    fullTypeName: Jump
+    methodName: StopJump
+  - assembly: Assembly-CSharp
+    fullTypeName: CooldownController
+    methodName: StartMiniSlimeCoroutine
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.Behaviour
+    methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: SlimeController
+    methodName: CanMove
   - assembly: Assembly-CSharp
     fullTypeName: Jump
     methodName: StartJump
@@ -273,6 +304,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 62
       Script: {instanceID: 0}
+    - Class: 66
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -284,71 +317,81 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1544}
+      Script: {instanceID: 642}
     - Class: 114
-      Script: {instanceID: 1546}
+      Script: {instanceID: 1634}
     - Class: 114
       Script: {instanceID: 1638}
     - Class: 114
-      Script: {instanceID: 1642}
+      Script: {instanceID: 1872}
     - Class: 114
-      Script: {instanceID: 2424}
+      Script: {instanceID: 2422}
     - Class: 114
       Script: {instanceID: 3030}
     - Class: 114
-      Script: {instanceID: 3302}
+      Script: {instanceID: 3218}
     - Class: 114
-      Script: {instanceID: 3682}
+      Script: {instanceID: 3304}
     - Class: 114
-      Script: {instanceID: 4022}
+      Script: {instanceID: 3604}
     - Class: 114
-      Script: {instanceID: 4530}
+      Script: {instanceID: 3686}
     - Class: 114
-      Script: {instanceID: 5040}
+      Script: {instanceID: 4026}
     - Class: 114
-      Script: {instanceID: 5094}
+      Script: {instanceID: 4078}
     - Class: 114
-      Script: {instanceID: 5440}
+      Script: {instanceID: 4252}
     - Class: 114
-      Script: {instanceID: 5846}
+      Script: {instanceID: 4386}
     - Class: 114
-      Script: {instanceID: 6334}
+      Script: {instanceID: 4540}
     - Class: 114
-      Script: {instanceID: 6438}
+      Script: {instanceID: 4700}
     - Class: 114
-      Script: {instanceID: 7194}
+      Script: {instanceID: 5024}
     - Class: 114
-      Script: {instanceID: 7428}
+      Script: {instanceID: 5054}
     - Class: 114
-      Script: {instanceID: 8158}
+      Script: {instanceID: 5108}
     - Class: 114
-      Script: {instanceID: 8378}
+      Script: {instanceID: 5224}
     - Class: 114
-      Script: {instanceID: 9082}
+      Script: {instanceID: 5456}
     - Class: 114
-      Script: {instanceID: 9320}
+      Script: {instanceID: 5650}
     - Class: 114
-      Script: {instanceID: 10584}
+      Script: {instanceID: 5750}
     - Class: 114
-      Script: {instanceID: 10588}
+      Script: {instanceID: 5868}
     - Class: 114
-      Script: {instanceID: 10596}
+      Script: {instanceID: 6356}
     - Class: 114
-      Script: {instanceID: 10600}
+      Script: {instanceID: 6460}
     - Class: 114
-      Script: {instanceID: 10604}
+      Script: {instanceID: 7216}
     - Class: 114
-      Script: {instanceID: 10608}
+      Script: {instanceID: 7450}
     - Class: 114
-      Script: {instanceID: 10612}
+      Script: {instanceID: 7958}
     - Class: 114
-      Script: {instanceID: 10616}
+      Script: {instanceID: 8182}
     - Class: 114
-      Script: {instanceID: 10620}
+      Script: {instanceID: 8402}
     - Class: 114
-      Script: {instanceID: 10624}
+      Script: {instanceID: 8548}
     - Class: 114
-      Script: {instanceID: 32078}
+      Script: {instanceID: 8672}
+    - Class: 114
+      Script: {instanceID: 9110}
+    - Class: 114
+      Script: {instanceID: 9348}
+    - Class: 114
+      Script: {instanceID: 9668}
+    - Class: 114
+      Script: {instanceID: 9810}
+    - Class: 114
+      Script: {instanceID: 34204}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -367,19 +410,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
+    - Class: 19719996
+      Script: {instanceID: 0}
+    - Class: 156049354
+      Script: {instanceID: 0}
+    - Class: 483693784
+      Script: {instanceID: 0}
+    - Class: 1839735485
+      Script: {instanceID: 0}
   scriptHashData:
-  - hash:
-      serializedVersion: 2
-      Hash: 86a88ed38b0fbece387ee8fe7632f40e
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: RangeActivation
-  - hash:
-      serializedVersion: 2
-      Hash: 4e5cf6a71188cd8a442eda5139259f53
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: SlimeController
   - hash:
       serializedVersion: 2
       Hash: 55060a7bf226ac385ce19ebd450f199f
@@ -428,6 +467,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Selectable
+  - hash:
+      serializedVersion: 2
+      Hash: 0e7b229a1fd52df2074e2b30ba0488fb
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: VigorBar
   - hash:
       serializedVersion: 2
       Hash: 157d3cf40178d244cd11ae1c9791ead7
@@ -520,6 +565,12 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: 9a0ef06e45dbc31e9f87e3e2b2af6a37
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Randomizer
+  - hash:
+      serializedVersion: 2
       Hash: 674f22ab166efb9fbd2bbc5a88542c7e
     assemblyName: Unity.2D.IK.Runtime
     namespaceName: UnityEngine.U2D.IK
@@ -578,6 +629,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.Tilemap.Extras
     namespaceName: UnityEngine.Tilemaps
     className: RuleOverrideTile
+  - hash:
+      serializedVersion: 2
+      Hash: 3d2238d8223c255addf0ee26ad01adc7
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlayerController
   - hash:
       serializedVersion: 2
       Hash: fce9b835d1e8b08e7ecea8da19f21986
@@ -644,6 +701,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnDropdownValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 58d2f99fe35cd88fd7a6d0e7df5d1fa0
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: AnimatorEventHelper
   - hash:
       serializedVersion: 2
       Hash: b838cbada0b03f1cfbaebc8e124f4f39
@@ -736,6 +799,12 @@ ScriptsOnlyBuild:
     className: UnityOnSelectMessageListener
   - hash:
       serializedVersion: 2
+      Hash: f76fdc95c79a4992af85a39bf49715c7
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Vigor
+  - hash:
+      serializedVersion: 2
       Hash: 5b8b7230ad968399f6726aa1269dcdcb
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -754,6 +823,12 @@ ScriptsOnlyBuild:
     className: UnityOnControllerColliderHitMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 7d124f741289821af843aaae7d482e57
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SlimeController
+  - hash:
+      serializedVersion: 2
       Hash: 960935b102b3064f4b924de16426e340
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -770,6 +845,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnCollisionExit2DMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: d0b408063998a934d2ebbe65250e14bc
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: HealthBar
   - hash:
       serializedVersion: 2
       Hash: 709e7a14fd69c48de1a0f460ef868042
@@ -800,6 +881,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: a287ab45000bd092b6c9d56e9f0a1175
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MiniSlimeController
   - hash:
       serializedVersion: 2
       Hash: 95426d463074947dcbffc797c44e779c
@@ -874,13 +961,19 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 1349d11f654d50ffa2465941092b0481
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Knockback
+  - hash:
+      serializedVersion: 2
       Hash: 042785b832afb73fd0585521aa7baf43
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 223047b442c9e09550def64c0d04751f
+      Hash: b5b21a54bd7b5d8df6949e2bb5e0c703
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CooldownController
@@ -908,6 +1001,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: DictionaryAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 86a88ed38b0fbece387ee8fe7632f40e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: RangeActivation
   - hash:
       serializedVersion: 2
       Hash: e7e95903ca66d58e1a7cbd71f824e16d
@@ -946,6 +1045,12 @@ ScriptsOnlyBuild:
     className: InputDeviceDebuggerWindow
   - hash:
       serializedVersion: 2
+      Hash: ae19211731679c8388b353d565e20d7a
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Health
+  - hash:
+      serializedVersion: 2
       Hash: ff71db1a48de41d3a8a5ffdfae1ea607
     assemblyName: Unity.InputSystem
     namespaceName: UnityEngine.InputSystem
@@ -956,6 +1061,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerClickMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 85a67919f45dca7661656b0c89a47b5c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SecondFaseController
   - hash:
       serializedVersion: 2
       Hash: 14fb963022965ffa004cc4ec810b9fdd
@@ -1210,6 +1321,12 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
+      Hash: d35cd193db641de757d953a204cbe37e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: InputSystemHelper
+  - hash:
+      serializedVersion: 2
       Hash: 672716ae97f6ddb615fa5ac3ec9da349
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestTools
@@ -1312,6 +1429,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 396ed8afa3859eff4c289b61e74143b4
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: WeaponParent
+  - hash:
+      serializedVersion: 2
       Hash: c4b85a67513b4f0cf7b5fb2d5ded04b0
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1340,6 +1463,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
     className: Physics2DRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 891e489d1d256fdb217ae0df370c1720
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MiniSlimeGenerator
   - hash:
       serializedVersion: 2
       Hash: 19824dd35debb3fff0983df49f8359ab
@@ -1468,6 +1597,12 @@ ScriptsOnlyBuild:
     className: MultiplayerEventSystem
   - hash:
       serializedVersion: 2
+      Hash: f9845c8d0f1ce018c07beedb9ed35f9d
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SceneController
+  - hash:
+      serializedVersion: 2
       Hash: 47d50f529890b9237021f88334dc1cf6
     assemblyName: Unity.2D.Animation.Runtime
     namespaceName: UnityEngine.U2D.Animation
@@ -1496,6 +1631,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: Variables
+  - hash:
+      serializedVersion: 2
+      Hash: 6c6ab14ee4fc492c48df4f4855b03e6e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ParryController
   - hash:
       serializedVersion: 2
       Hash: b30c8635462e66ac20f4241106119f77
@@ -1588,70 +1729,10 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 1349d11f654d50ffa2465941092b0481
+      Hash: 6effbe54bc3697fb77cd6f59ddcc8d8c
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: Knockback
-  - hash:
-      serializedVersion: 2
-      Hash: 0e7b229a1fd52df2074e2b30ba0488fb
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: VigorBar
-  - hash:
-      serializedVersion: 2
-      Hash: 396ed8afa3859eff4c289b61e74143b4
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: WeaponParent
-  - hash:
-      serializedVersion: 2
-      Hash: d35cd193db641de757d953a204cbe37e
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: InputSystemHelper
-  - hash:
-      serializedVersion: 2
-      Hash: f9845c8d0f1ce018c07beedb9ed35f9d
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: SceneController
-  - hash:
-      serializedVersion: 2
-      Hash: f76fdc95c79a4992af85a39bf49715c7
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Vigor
-  - hash:
-      serializedVersion: 2
-      Hash: ae19211731679c8388b353d565e20d7a
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Health
-  - hash:
-      serializedVersion: 2
-      Hash: d0b408063998a934d2ebbe65250e14bc
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: HealthBar
-  - hash:
-      serializedVersion: 2
-      Hash: 3d2238d8223c255addf0ee26ad01adc7
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: PlayerController
-  - hash:
-      serializedVersion: 2
-      Hash: 58d2f99fe35cd88fd7a6d0e7df5d1fa0
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: AnimatorEventHelper
-  - hash:
-      serializedVersion: 2
-      Hash: 6c6ab14ee4fc492c48df4f4855b03e6e
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: ParryController
+    className: CameraFit
   platform: 20
   scenePathNames:
   - Assets/Scenes/SlimeBoss.unity
