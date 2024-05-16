@@ -11,12 +11,13 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb2D;
     private Animator animator;
-    private PlayerControls playerControls;
+    private PlayerInput playerInput;
     [SerializeField] private GameObject weapon;
     private WeaponParent weaponParent;
     private InputSystemHelper inputSystemHelper;
     private float gravity;
     public bool knockbackCheck = false;
+    private bool flipController = false;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
         health = GetComponent<Health>();
         inputSystemHelper = GetComponent<InputSystemHelper>();
         vigor = GetComponent<Vigor>();
-        playerControls = new PlayerControls();
+        playerInput = GetComponent<PlayerInput>();
         gravity = rb2D.gravityScale;
         canDash = true;
     }
@@ -220,7 +221,7 @@ public class PlayerController : MonoBehaviour
         {
             scale.x = 3;
         }
-        else if (lookDirection.x < -0.5f)
+        else if (lookDirection.x < -0.5f && !flipController)
         {
             scale.x = -3;
         }
@@ -290,4 +291,28 @@ public class PlayerController : MonoBehaviour
         weapon.SetActive(false);
         inputSystemHelper.enabled = true;
     }
+<<<<<<< Updated upstream
+=======
+
+    private void ActiveAnimation(string name)
+    {
+        animator.SetTrigger(name);
+    }
+
+    public void SetInputEnabled(bool isEnabled)
+    {
+        if (isEnabled)
+        {
+            playerInput.enabled= true;
+            flipController = false;
+            Debug.Log("se puede mover");
+        }
+        else
+        {
+            playerInput.enabled = false;
+            flipController = true;
+            Debug.Log("no se puede mover");
+        }
+    }
+>>>>>>> Stashed changes
 }

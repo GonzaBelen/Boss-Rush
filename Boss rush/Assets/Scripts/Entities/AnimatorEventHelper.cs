@@ -7,7 +7,12 @@ public class AnimatorEventHelper : MonoBehaviour
 {
     public UnityEvent OnAnimationEventTriggered;
     public UnityEvent OnAttackPerformed;
+<<<<<<< Updated upstream
 
+=======
+    public UnityEvent OnSlimeAttackTriggered;
+    public UnityEvent OnBrotherAttackTriggered;
+>>>>>>> Stashed changes
 
     public void TriggerEvent()
     {
@@ -18,4 +23,12 @@ public class AnimatorEventHelper : MonoBehaviour
     {
         OnAttackPerformed?.Invoke();
     }
+<<<<<<< Updated upstream
+=======
+
+    public void BrotherTriggerAttack()
+    {
+        OnBrotherAttackTriggered?.Invoke();
+    }
+>>>>>>> Stashed changes
 }

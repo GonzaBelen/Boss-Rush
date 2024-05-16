@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Ground
   - Square
+<<<<<<< Updated upstream
+=======
+  - Slime
+  - Brother
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -15,10 +20,17 @@ TagManager:
   - UI
   - Player
   - Enemie
+<<<<<<< Updated upstream
   - 
   - 
   - 
   - 
+=======
+  - Minion
+  - Brother
+  - Controller
+  - Barrier
+>>>>>>> Stashed changes
   - 
   - 
   - 

@@ -19,7 +19,14 @@ public class Health : MonoBehaviour
         
         if (gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+<<<<<<< Updated upstream
             healthBar.SetMaxHealth(maxHealth);
+=======
+            healthBar.SetMaxHealth(maxHealth); 
+        } else
+        {
+            return;
+>>>>>>> Stashed changes
         }
     }
     
@@ -28,6 +35,9 @@ public class Health : MonoBehaviour
         if (gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             healthBar.SetHealth(currentHealth);
+        } else 
+        {
+            return;
         }
     }
     
